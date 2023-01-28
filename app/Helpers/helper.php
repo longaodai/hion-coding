@@ -10,3 +10,14 @@ if (!function_exists('formatDate')) {
         return $date;
     }
 }
+
+if (!function_exists('getPathImage')) {
+    function getPathImage($image)
+    {
+        if (!empty($image) && file_exists(public_path('storage/'. $image))) {
+            return 'storage/'. $image;
+        }
+
+        return 'libs/no-image.png';;
+    }
+}

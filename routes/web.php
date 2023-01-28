@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\Client\HomeController;
@@ -19,16 +20,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/** Client */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/post', [PostController::class, 'show'])->name('post-detail');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-Route::prefix('ohion')->name('admin.')->group(function () {
-    Route::get('/', [AuthController::class, 'index'])->name('login');
+/** Auth */
+Route::get('/login', [AuthController::class, 'index'])->name('admin.login');
+Route::post('/login-auth', [AuthController::class, 'login'])->name('admin.login-auth');
+Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
-
+Route::prefix('ohion')->middleware('auth_admin')->name('admin.')->group(function () {
     // Categories
     Route::prefix('category')->name('category.')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('list');
@@ -36,5 +40,14 @@ Route::prefix('ohion')->name('admin.')->group(function () {
         Route::post('/store', [CategoryController::class, 'store'])->name('store');
         Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
         Route::patch('/update/{id}', [CategoryController::class, 'update'])->name('update');
+    });
+
+    // Posts
+    Route::prefix('post')->name('post.')->group(function () {
+        Route::get('/', [AdminPostController::class, 'index'])->name('list');
+        Route::get('/create', [AdminPostController::class, 'create'])->name('create');
+        Route::post('/store', [AdminPostController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [AdminPostController::class, 'edit'])->name('edit');
+        Route::patch('/update/{id}', [AdminPostController::class, 'update'])->name('update');
     });
 });

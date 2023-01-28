@@ -41,7 +41,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="6">{{ __('common.lbl_not_data_available') }}</td>
+                            <td colspan="7" class="text-center">{{ __('common.lbl_not_data_available') }}</td>
                         </tr>
                     @endif
                 </tbody>

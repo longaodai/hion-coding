@@ -31,25 +31,27 @@
                                     <span><img src="{{ asset('common/images/logo.png') }}" alt="" height="100"></span>
                                 </a>
                             </div>
-                            <form action="#">
+                            @include('admin.notifications.toast')
+                            <form action="{{ route('admin.login-auth') }}" method="POST">
+                                @csrf
                                 <div class="form-group mb-3">
                                     <label for="emailaddress">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
+                                    <input class="form-control" type="email" name="email" id="emailaddress" value="{{ old('email') }}"
                                         placeholder="Enter your email">
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="password">Password</label>
-                                    <input class="form-control" type="password" required="" id="password"
+                                    <input class="form-control" type="password" name="password" id="password" value="{{ old('password') }}"
                                         placeholder="Enter your password">
                                 </div>
 
-                                <div class="form-group mb-3">
+                                {{-- <div class="form-group mb-3">
                                     <div class="custom-control custom-checkbox checkbox-info">
                                         <input type="checkbox" class="custom-control-input" id="checkbox-signin">
                                         <label class="custom-control-label" for="checkbox-signin">Remember me</label>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group mb-0 text-center">
                                     <button class="btn btn-danger btn-block" type="submit"> Log In </button>

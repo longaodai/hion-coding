@@ -27,16 +27,16 @@
 
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="la la-cube"></i>
+                        <i class="la la-file"></i>
                         <span> {{ __('common.lbl_posts') }} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="">{{ __('common.lbl_list') }}</a>
+                            <a href="{{ route('admin.post.list') }}">{{ __('common.lbl_list') }}</a>
                         </li>
                         <li>
-                            <a href="">{{ __('common.lbl_create') }}</a>
+                            <a href="{{ route('admin.post.create') }}">{{ __('common.lbl_create') }}</a>
                         </li>
                     </ul>
                 </li>

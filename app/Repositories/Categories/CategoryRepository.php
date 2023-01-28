@@ -33,7 +33,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 
     public function mark($params = null)
     {
-        if (!empty($params->get('id'))) {
+        if (!empty($params) && !empty($params->get('id'))) {
             $this->thisModel('where', 'id', $params->get('id'));
         }
 

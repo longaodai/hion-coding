@@ -21,7 +21,7 @@
                 href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <i class="fe-user"></i>
                 <span class="pro-user-name ml-1">
-                    Vo Chi Long <i class="mdi mdi-chevron-down"></i>
+                    {{ !empty(Auth::user()->name) ? Auth::user()->name : '' }} <i class="mdi mdi-chevron-down"></i>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -53,7 +53,7 @@
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
                     <span>Logout</span>
                 </a>

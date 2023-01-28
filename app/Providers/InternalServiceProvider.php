@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Services\Categories\CategoryService;
 use App\Services\Categories\CategoryServiceInterface;
+use App\Services\Posts\PostService;
+use App\Services\Posts\PostServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class InternalServiceProvider extends ServiceProvider
@@ -16,6 +18,7 @@ class InternalServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(CategoryServiceInterface::class, CategoryService::class);
+        $this->app->singleton(PostServiceInterface::class, PostService::class);
     }
 
     /**
@@ -32,6 +35,7 @@ class InternalServiceProvider extends ServiceProvider
     {
         return [
             CategoryServiceInterface::class,
+            PostServiceInterface::class,
         ];
     }
 }
