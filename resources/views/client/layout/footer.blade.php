@@ -12,17 +12,18 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('common.lbl_about_nav') }}</a>
+                        <a class="nav-link" href="{{ route('about') }}">{{ __('common.lbl_about_nav') }}</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('common.lbl_post_nav') }}</a>
+                        <a class="nav-link" href="{{ route('posts') }}">{{ __('common.lbl_post_nav') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('common.lbl_funny_nav') }}</a>
+                        <a class="nav-link" target="_blank"
+                            href="https://giaiphap2022.000webhostapp.com/">{{ __('common.lbl_funny_nav') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('common.lbl_contact_nav') }}</a>
+                        <a class="nav-link" href="{{ route('contact') }}">{{ __('common.lbl_contact_nav') }}</a>
                     </li>
                 </ul>
             </div>
@@ -53,8 +54,7 @@
         <!-- copyright text -->
         <div class="row pt-2">
             <div class="col-lg-12 text-center">
-                <span>&copy {{ date('Y') }} <a href="#">{{ __('common.lbl_name_site') }}</a> All Rights
-                    Received.</span>
+                <span>&copy {{ date('Y') }} <a href="#">{{ __('common.lbl_name_site') }}</a></span>
             </div>
         </div>
     </div>

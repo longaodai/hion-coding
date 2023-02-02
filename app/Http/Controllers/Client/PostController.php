@@ -3,17 +3,54 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Services\Posts\PostServiceInterface;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index()
+    public $postService;
+
+    public function __construct(PostServiceInterface $postService)
     {
-        return view('client.pages.posts');
+        $this->postService = $postService;
     }
 
-    public function show()
+
+    public function index()
     {
-        return view('client.pages.post');
+        $dataPost = $this->postService->getList(
+            collect([
+                'is_active' => true,
+                'with_users' => true,
+                'with_category' => true,
+            ]),
+            collect([
+                'set_pagination' => 20,
+            ])
+        );
+
+        return view('client.pages.posts', compact('dataPost'));
+    }
+
+    public function show($slug)
+    {
+        $post = $this->postService->getFirstBy(
+            collect([
+                'post_slug' => $slug,
+                'with_users' => true,
+                'with_category' => true,
+            ])
+        );
+
+        $postRelation = $this->postService->all(
+            collect([
+                'is_active' => true,
+                'limit' => 2,
+                'category_id' => $post->category_id,
+                'not_post_id' => $post->id,
+            ])
+        );
+
+        return view('client.pages.post', compact('post', 'postRelation'));
     }
 }

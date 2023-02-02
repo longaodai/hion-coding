@@ -46,9 +46,9 @@ abstract class  BaseRepository
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function all($params = null)
+    public function all($data = null)
     {
-        $this->filter($params);
+        $this->filter($data);
 
         return $this->model->get();
     }
@@ -60,9 +60,9 @@ abstract class  BaseRepository
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function getList($params = null)
+    public function getList($data = null, $params = null)
     {
-        $this->filter($params);
+        $this->filter($data);
         
         return $this->model->paginate($this->getPagination($params));
     }

@@ -64,7 +64,7 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo text-center">
+        <a href="{{ route('home') }}" target="_blank" class="logo text-center">
             <span class="logo-lg">
                 <img src="{{ asset('common/images/logo.png') }}" alt="" height="80" style="margin-top: 10px">
             </span>

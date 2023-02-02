@@ -14,6 +14,6 @@ class PostService extends BaseService implements PostServiceInterface
 
     public function getList($data = null, $options = null)
     {
-        return parent::getList();
+        return parent::getList($data, $options);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Utils\ImageTrait;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
 use App\Http\Requests\Post\UpdateRequest;
@@ -114,7 +115,7 @@ class PostController extends Controller
         $path = !empty($request->file('image')) ? $request->file('image')->storeAs('public/images', time() . '_' . $request->file('image')->getClientOriginalName()) : '';
         $data = [
             'post_title' => $request->get('name'),
-            'post_slug' => $request->get('name'),
+            'post_slug' => Str::slug($request->get('name')),
             'category_id' => $request->get('category_id'),
             'author_id' => $request->get('author_id'),
             'post_description' => $request->get('description'),

@@ -19,8 +19,27 @@ class Posts extends Model
         $this->attributes['post_slug'] = Str::slug($value);
     }
 
+    /**
+     * Relationship with category
+     *
+     * @return void
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function category()
     {
         return $this->hasOne(Categories::class, 'id', 'category_id');
+    }
+
+     /**
+     * Relationship with user
+     *
+     * @return void
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'author_id');
     }
 }

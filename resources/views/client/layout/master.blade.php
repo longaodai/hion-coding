@@ -20,6 +20,21 @@
 
     <title>OHION - Blogs share everything</title>
 
+    <style>
+        .pagination {
+            justify-content: center;
+        }
+
+        .badge-sm {
+            min-width: 1em;
+            padding: .1em 1em !important;
+            margin-left: .1em;
+            margin-right: .1em;
+            color: white !important;
+            cursor: pointer;
+            font-size: .8em !important;
+        }
+    </style>
     @yield('style-extend')
 </head>
 
