@@ -10,12 +10,21 @@ class PostController extends Controller
 {
     public $postService;
 
+    /**
+     * @param PostServiceInterface $postService
+     */
     public function __construct(PostServiceInterface $postService)
     {
         $this->postService = $postService;
     }
 
-
+    /**
+     * Get list post
+     *
+     * @return mixed
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function index()
     {
         $dataPost = $this->postService->getList(
@@ -32,6 +41,15 @@ class PostController extends Controller
         return view('client.pages.posts', compact('dataPost'));
     }
 
+    /**
+     * Show detail post
+     *
+     * @param $slug
+     * 
+     * @return mixed
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function show($slug)
     {
         $post = $this->postService->getFirstBy(

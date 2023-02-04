@@ -47,6 +47,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
      */
     public function all($data = null)
     {
+        $this->setModel();
         $this->thisModel('orderBy', 'updated_at', 'DESC');
 
         return parent::all($data);
@@ -125,6 +126,10 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
             if (!empty($params->get('not_post_id'))) {
                 $this->thisModel('where', 'id', '!=', $params->get('not_post_id'));
+            }
+
+            if (!empty($params->get('category_id'))) {
+                $this->thisModel('where', 'category_id', $params->get('category_id'));
             }
         }
 

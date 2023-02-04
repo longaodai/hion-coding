@@ -1,5 +1,12 @@
 @extends('client.layout.master')
 
+@section('style-extend')
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Hero Section -->
     <div class="container" id="hero">
