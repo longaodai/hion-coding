@@ -64,7 +64,7 @@ abstract class  BaseRepository
     {
         $this->filter($data);
         
-        return $this->model->paginate($this->getPagination($params));
+        return  $this->thisModel('paginate', $this->getPagination($params));
     }
 
     /**

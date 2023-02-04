@@ -8,6 +8,9 @@ use App\Repositories\BaseRepository;
 
 class PostRepository extends BaseRepository implements PostRepositoryInterface
 {
+    /**
+     * @param Posts $app
+     */
     public function __construct(Posts $app)
     {
         $this->app = $app;
@@ -15,6 +18,16 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         parent::__construct();
     }
 
+    /**
+     * Get list
+     *
+     * @param  $data
+     * @param  $options
+     * 
+     * @return 
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function getList($data = null, $options = null)
     {
         $this->thisModel('orderBy', 'id', 'DESC');
@@ -23,6 +36,15 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         return parent::getList($data, $options);
     }
 
+     /**
+     * Get all
+     *
+     * @param  $data
+     * 
+     * @return 
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function all($data = null)
     {
         $this->thisModel('orderBy', 'updated_at', 'DESC');
@@ -30,6 +52,16 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         return parent::all($data);
     }
 
+    /**
+     * Update
+     *
+     * @param  $params
+     * @param  $options
+     * 
+     * @return 
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function update($params = null, $options = null)
     {
         $this->mark($options);
@@ -37,6 +69,15 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         return parent::update($params, $options);
     }
 
+    /**
+     * Filter
+     *
+     * @param $params
+     * 
+     * @return void
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function mark($params = null)
     {
         if (!empty($params) && !empty($params->get('id'))) {
@@ -46,10 +87,17 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         return parent::mark($params);
     }
 
+    /**
+     * Filter
+     *
+     * @param $params
+     * 
+     * @return void
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function filter($params = null)
     {
-        $this->setModel();
-
         if (!empty($params) && $params instanceof Collection) {
             if (!empty($params->get('is_active'))) {
                 $this->thisModel('where', 'post_active', $params->get('is_active'));
@@ -69,6 +117,10 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
             if (!empty($params->get('limit'))) {
                 $this->thisModel('limit', $params->get('limit'));
+            }
+
+            if (!empty($params->get('id'))) {
+                $this->thisModel('where', 'id', $params->get('id'));
             }
 
             if (!empty($params->get('not_post_id'))) {

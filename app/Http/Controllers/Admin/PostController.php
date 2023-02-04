@@ -66,7 +66,7 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $path = !empty($request->file('image')) ? $request->file('image')->storeAs('public/images', time() . '_' . $request->file('image')->getClientOriginalName()) : '';
+        $path = !empty($request->file('image')) ? $this->storeImage($request->file('image'), 'product') : '';
         $data = [
             'post_title' => $request->get('name'),
             'post_slug' => $request->get('name'),
@@ -112,7 +112,7 @@ class PostController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        $path = !empty($request->file('image')) ? $request->file('image')->storeAs('public/images', time() . '_' . $request->file('image')->getClientOriginalName()) : '';
+        $path = !empty($request->file('image')) ? $this->updateImage($request->file('image'), $request->get('old_image'), 'product') : '';
         $data = [
             'post_title' => $request->get('name'),
             'post_slug' => Str::slug($request->get('name')),

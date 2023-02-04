@@ -37,18 +37,29 @@ class UpdateRequest extends FormRequest
         ];
     }
 
+    /**
+     * Custom validate
+     *
+     * @return mixed
+     * 
+     * @author longvc <vochilong.work@gmail.com>
+     */
     public function validateCustom()
     {
         Validator::extend('valid_category_id', function ($attribute, $value, $parameters) {
             $categoryService = app(CategoryServiceInterface::class);
-            $dataCategory = $categoryService->getFirstBy(['id' => $value]);
+            $dataCategory = $categoryService->getFirstBy(collect(
+                ['id' => $value]
+            ));
            
             return !empty($dataCategory);
         });
 
         Validator::extend('valid_post', function ($attribute, $value, $parameters) {
             $postService = app(PostServiceInterface::class);
-            $dataPost = $postService->getFirstBy(['id' => $value]);
+            $dataPost = $postService->getFirstBy(
+                collect(['id' => $value])
+            );
 
             if (empty($dataPost)) {
                 return false;
