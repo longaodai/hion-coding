@@ -36,7 +36,7 @@ class PostController extends Controller
     public function index()
     {
         $data = $this->service->getList();
-        
+
         return view('admin.pages.post.index', compact('data'));
     }
 
@@ -51,7 +51,7 @@ class PostController extends Controller
     {
         $categoryService = app(CategoryServiceInterface::class);
         $dataCategory = $categoryService->all();
-        
+
         return view('admin.pages.post.create', compact('dataCategory'));
     }
 
@@ -66,7 +66,7 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $path = !empty($request->file('image')) ? $this->storeImage($request->file('image'), 'product') : '';
+        $path = !empty($request->file('image')) ? $this->storeImage($request->file('image'), 'post') : '';
         $data = [
             'post_title' => $request->get('name'),
             'post_slug' => $request->get('name'),
@@ -76,7 +76,7 @@ class PostController extends Controller
             'post_description' => $request->get('description'),
             'post_active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
         ];
-        
+
         $this->service->store($data);
 
         return redirect()->back()->with('success', __('common.msg_add_success'));
@@ -129,8 +129,8 @@ class PostController extends Controller
         $post = $this->service->update($data, collect(['id' => $id]));
 
         /**Remove image post old when updated success and has image new */
-        if (!empty($path) && $post && file_exists(public_path('storage/'. $request->get('old_image')))) {
-            unlink(storage_path('app/'.$request->get('old_image')));
+        if (!empty($path) && $post && file_exists(public_path('storage/' . $request->get('old_image')))) {
+            unlink(storage_path('app/' . $request->get('old_image')));
         }
 
         return redirect()->back()->with('success', __('common.msg_update_success'));

@@ -68,6 +68,7 @@ class PostController extends Controller
                 'not_post_id' => $post->id,
             ])
         );
+        setDataMeta($post, collect(['is_post' => true]));
 
         return view('client.pages.post', compact('post', 'postRelation'));
     }

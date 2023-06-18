@@ -1,12 +1,5 @@
 @extends('client.layout.master')
 
-@section('style-extend')
-    <style>
-        img {
-            max-width: 100%;
-        }
-    </style>
-@endsection
 @section('content')
     <!-- Hero Section -->
     <div class="container" id="hero">
@@ -102,4 +95,47 @@
             @endif
         </div>
     </div>
+@endsection
+
+@section('style-extend')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
+    <style>
+        /* Tệp CSS tùy chỉnh */
+        pre {
+            background-color: #1d1f21;
+            color: #c5c8c6;
+        }
+
+        code {
+            color: #c5c8c6;
+        }
+
+        /* Áp dụng các lớp CSS cho các phần tử PrismJS */
+        .language-php .token.string {
+            color: #b5cea8;
+        }
+
+        .language-php .token.comment,
+        .language-php .token.prolog,
+        .language-php .token.doctype,
+        .language-php .token.cdata {
+            color: #8e908c;
+        }
+
+        /* Thêm các quy tắc CSS khác tùy thuộc vào yêu cầu của bạn */
+    </style>
+@endsection
+
+@section('script-extend')
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Prism.highlightAll();
+        });
+    </script>
 @endsection
