@@ -1,5 +1,8 @@
 <?php
 
+use App\Facades\OpenGraph;
+use Illuminate\Support\Str;
+
 if (!function_exists('formatDate')) {
     function formatDate($date, string $format = 'Y/m/d')
     {
@@ -19,5 +22,16 @@ if (!function_exists('getPathImage')) {
         }
 
         return 'libs/no-image.png';;
+    }
+}
+
+if (!function_exists('setDataMeta')) {
+    function setDataMeta($data, $options)
+    {
+        if (!empty($options->get('is_post'))) {
+            if (!empty($data->post_title)) OpenGraph::set('title', $data->post_title);
+            if (!empty($data->post_description)) OpenGraph::set('description', strip_tags(Str::limit($data->post_description, 100, '...')));
+            if (!empty($data->post_image)) OpenGraph::set('image', $data->post_image);
+        }
     }
 }

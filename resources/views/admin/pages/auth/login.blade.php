@@ -12,9 +12,9 @@
     <link rel="icon" type="image/png" href="{{ asset('common/images/logo.png') }}" />
 
     <!-- App css -->
-    <link href="{{ asset('admin\css\bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('admin\css\icons.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('admin\css\app.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin_libs_asset\css\bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin_libs_asset\css\icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('admin_libs_asset\css\app.min.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -78,10 +78,10 @@
     <!-- end Footer -->
 
     <!-- Vendor js -->
-    <script src="{{ asset('admin\js\vendor.min.js') }}"></script>
+    <script src="{{ asset('admin_libs_asset\js\vendor.min.js') }}"></script>
 
     <!-- App js -->
-    <script src="{{ asset('admin\js\app.min.js') }}"></script>
+    <script src="{{ asset('admin_libs_asset\js\app.min.js') }}"></script>
 
 </body>
 

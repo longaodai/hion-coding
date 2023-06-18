@@ -18,10 +18,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('posts') }}">{{ __('common.lbl_post_nav') }}</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" target="_blank"
                             href="https://giaiphap2022.000webhostapp.com/">{{ __('common.lbl_funny_nav') }}</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">{{ __('common.lbl_contact_nav') }}</a>
                     </li>

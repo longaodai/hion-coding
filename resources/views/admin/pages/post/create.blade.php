@@ -101,6 +101,8 @@
 @section('script')
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace('lbl_description');
+        CKEDITOR.replace('lbl_description', {
+            extraPlugins: 'codesnippet'
+        });
     </script>
 @endsection
