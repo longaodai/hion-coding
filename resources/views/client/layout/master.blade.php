@@ -96,6 +96,123 @@
     </script>
 
     @yield('script-extend')
+
+    @php
+        const COOKIE_SHOPEE_AFFILATE = 'shopee_affiliate';
+    @endphp
+    @if (!isset($_COOKIE[COOKIE_SHOPEE_AFFILATE]))
+        @php
+            $linkAffiliate = 'https://shope.ee/6AGYHPhTCC';
+            $setMinutes = 1;
+            $timeOpenLink = $setMinutes * 60 * 1000;
+        @endphp
+        <style>
+            .home-popup__background {
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                position: fixed;
+                background-color: rgba(0, 0, 0, 0.4);
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                place-content: center;
+                -webkit-box-pack: center;
+                z-index: 1000000;
+            }
+
+            .home-popup__content {
+                -webkit-box-flex: 0;
+                flex: 0 1 auto;
+                position: relative;
+                width: 80%;
+                max-width: 438px;
+                max-height: 100%;
+                justify-content: center;
+            }
+
+            .home-popup__content-image {
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+            }
+
+            .home-popup__content img {
+                overflow-clip-margin: content-box;
+                overflow: clip;
+                width: 80%;
+            }
+
+            .home-popup__close-area {
+                position: absolute;
+                display: block;
+                top: 0px;
+                right: 40px;
+                width: 15%;
+                height: 19%;
+                cursor: pointer;
+            }
+
+            .shopee-popup__close-btn {
+                cursor: pointer;
+                user-select: none;
+                line-height: 40px;
+                height: 30px;
+                width: 30px;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                justify-content: center;
+                position: absolute;
+                box-sizing: border-box;
+                background: rgb(239, 239, 239);
+                top: -10px;
+                right: -10px;
+                border-radius: 20px;
+                border: 3px solid rgb(239, 239, 239);
+            }
+
+            .home-popup__close-button {
+                height: 16px;
+                width: 16px;
+                stroke: rgba(0, 0, 0, 0.5);
+                stroke-width: 2px;
+            }
+        </style>
+        <div id="home-popup">
+            <a href="<?= $linkAffiliate ?>" target="_blank">
+                <div class="home-popup__background">
+                    <div class="home-popup__content">
+                        <div class="home-popup__content-image">
+                            <img src="{{ asset('common/images/image_popup.jpg') }}">
+                        </div>
+                        <div class="home-popup__close-area">
+                            <div class="shopee-popup__close-btn">
+                                <svg viewBox="0 0 16 16" stroke="#EE4D2D" class="home-popup__close-button">
+                                    <path stroke-linecap="round" d="M1.1,1.1L15.2,15.2"></path>
+                                    <path stroke-linecap="round" d="M15,1L0.9,15.1"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <script>
+            let areaPopup = document.querySelector('#home-popup');
+            areaPopup.addEventListener('click', function() {
+                areaPopup.style.display = 'none';
+                var date = new Date();
+                date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + date.toUTCString();
+                document.cookie = "<?= COOKIE_SHOPEE_AFFILATE ?>=<?= COOKIE_SHOPEE_AFFILATE ?>; " + expires +
+                    "; path=/;";
+            })
+        </script>
+    @endif
 </body>
 
 </html>
