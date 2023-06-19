@@ -15,7 +15,19 @@
     <link href="{{ asset('admin_libs_asset\css\bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin_libs_asset\css\icons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin_libs_asset\css\app.min.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        div[style*="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"] {
+            display: none !important;
+        }
 
+        img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+            display: none !important;
+        }
+
+        a[href*="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website&utm_content=footer_img"] {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body class="authentication-bg authentication-bg-pattern">
@@ -28,7 +40,8 @@
                         <div class="card-body p-4">
                             <div class="text-center w-75 m-auto">
                                 <a href="index.html">
-                                    <span><img src="{{ asset('common/images/logo.png') }}" alt="" height="100"></span>
+                                    <span><img src="{{ asset('common/images/logo.png') }}" alt=""
+                                            height="100"></span>
                                 </a>
                             </div>
                             @include('admin.notifications.toast')
@@ -36,14 +49,14 @@
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="emailaddress">Email address</label>
-                                    <input class="form-control" type="email" name="email" id="emailaddress" value="{{ old('email') }}"
-                                        placeholder="Enter your email">
+                                    <input class="form-control" type="email" name="email" id="emailaddress"
+                                        value="{{ old('email') }}" placeholder="Enter your email">
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="password">Password</label>
-                                    <input class="form-control" type="password" name="password" id="password" value="{{ old('password') }}"
-                                        placeholder="Enter your password">
+                                    <input class="form-control" type="password" name="password" id="password"
+                                        value="{{ old('password') }}" placeholder="Enter your password">
                                 </div>
 
                                 {{-- <div class="form-group mb-3">
@@ -73,7 +86,7 @@
 
     <!-- Footer Start -->
     <footer class="footer footer-alt">
-        {{ date('Y') }} &copy; {{ __('common.lbl_name_author') }} 
+        {{ date('Y') }} &copy; {{ __('common.lbl_name_author') }}
     </footer>
     <!-- end Footer -->
 
