@@ -20,6 +20,19 @@
 
     @include('client.layout.meta')
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYL5SNQ364"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KYL5SNQ364');
+    </script>
+
     <style>
         .pagination {
             justify-content: center;
@@ -33,6 +46,19 @@
             color: white !important;
             cursor: pointer;
             font-size: .8em !important;
+        }
+    </style>
+    <style>
+        div[style*="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"] {
+            display: none !important;
+        }
+
+        img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+            display: none !important;
+        }
+
+        a[href*="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website&utm_content=footer_img"] {
+            display: none !important;
         }
     </style>
     @yield('style-extend')

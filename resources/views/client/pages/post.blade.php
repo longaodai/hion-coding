@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <div class="container" id="hero">
+    <div class="container container-post" id="hero">
         <div class="row justify-content-end">
             <div class="col-lg-6 hero-img-container">
                 <div class="hero-img">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Content -->
-    <div class="container mt-5" id="content">
+    <div class="container mt-5 container-post" id="content">
         <div class="row justify-content-center">
             <!-- Share buttons -->
             <div class="col-lg-1 text-left mb-3 fixed" id="social-share">
@@ -100,8 +100,9 @@
 @section('style-extend')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
     <style>
-        img {
-            max-width: 100%;
+        .container-post img {
+            max-width: 100% !important;
+            max-height: 500px !important;
         }
     </style>
     <style>
@@ -115,7 +116,6 @@
             color: #c5c8c6;
         }
 
-        /* Áp dụng các lớp CSS cho các phần tử PrismJS */
         .language-php .token.string {
             color: #b5cea8;
         }
@@ -126,8 +126,6 @@
         .language-php .token.cdata {
             color: #8e908c;
         }
-
-        /* Thêm các quy tắc CSS khác tùy thuộc vào yêu cầu của bạn */
     </style>
 @endsection
 
