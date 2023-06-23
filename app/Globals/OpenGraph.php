@@ -17,7 +17,7 @@ class OpenGraph
 
     public function __construct()
     {
-        static::$values['image'] = asset('common/images/logo.png');
+        static::$values['image'] = asset('common/images/ohion-sharing-everything.jpg');
         static::$values['title'] = __('meta.lbl_title');
         static::$values['description'] = __('meta.lbl_description');
     }

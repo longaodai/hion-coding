@@ -112,7 +112,7 @@ class PostController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        $path = !empty($request->file('image')) ? $this->updateImage($request->file('image'), $request->get('old_image'), 'product') : '';
+        $path = !empty($request->file('image')) ? $this->updateImage($request->file('image'), $request->get('old_image'), 'post') : '';
         $data = [
             'post_title' => $request->get('name'),
             'post_slug' => Str::slug($request->get('name')),

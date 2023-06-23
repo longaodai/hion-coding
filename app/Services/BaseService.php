@@ -15,9 +15,9 @@ abstract class  BaseService
      * @param null $data
      * @param null $options
      */
-    public function all($data = null, $options = null)
+    public function all($data = null)
     {
-        return $this->repository->all($data, $options);
+        return $this->repository->all($data);
     }
 
     /**
@@ -29,7 +29,7 @@ abstract class  BaseService
         return $this->repository->getList($data, $options);
     }
 
-     /**
+    /**
      * @param null $data
      * @param null $options
      */
@@ -56,7 +56,7 @@ abstract class  BaseService
         return $this->repository->getFirstBy($data, $options);
     }
 
-     /**
+    /**
      * @param null $data
      * @param null $options
      */

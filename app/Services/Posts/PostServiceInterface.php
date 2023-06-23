@@ -8,7 +8,7 @@ interface PostServiceInterface
      * @param null $data
      * @param null $options
      */
-    public function all($data = null, $options = null);
+    public function all($data = null);
 
     /**
      * @param null $data

@@ -5,3 +5,5 @@
 <meta property="og:description" content="{{ App\Facades\OpenGraph::get('description') }}" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="{{ App\Facades\OpenGraph::get('image') }}" />
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">

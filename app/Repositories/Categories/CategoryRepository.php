@@ -14,7 +14,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     public function __construct(Categories $app)
     {
         $this->app = $app;
-        
+
         parent::__construct();
     }
 
@@ -60,7 +60,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     public function update($params = null, $options = null)
     {
         $this->mark($options);
-        
+
         return parent::update($params, $options);
     }
 
@@ -100,6 +100,10 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 
             if (!empty($params->get('not_id'))) {
                 $this->thisModel('where', 'id', '!=', $params->get('not_id'));
+            }
+
+            if (!empty($params->get('with_posts'))) {
+                $this->thisModel('with', 'posts');
             }
         }
 

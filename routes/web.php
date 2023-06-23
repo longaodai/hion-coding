@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Client\AboutController;
 use App\Http\Controllers\Client\ContactController;
+use App\Http\Controllers\Client\SitemapController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PostController;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,5 @@ Route::prefix('ohion')->middleware('auth_admin')->name('admin.')->group(function
         Route::patch('/update/{id}', [AdminPostController::class, 'update'])->name('update');
     });
 });
+
+Route::get('/sitemap', [SitemapController::class, 'index'])->name('contact');
