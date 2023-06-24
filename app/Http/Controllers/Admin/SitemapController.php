@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Client;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Services\Categories\CategoryServiceInterface;
@@ -24,27 +24,17 @@ class SitemapController extends Controller
         );
         $resultCreateSiteMap = $this->generateSitemap($categories);
 
-        return $resultCreateSiteMap;
+        if ($resultCreateSiteMap) {
+            return redirect(route('admin.dashboard'))->with('success', __('sitemap.msg_optimize_success'));
+        }
+
+        return redirect(route('admin.dashboard'))->with('error', __('sitemap.msg_optimize_error'));
     }
 
     protected function generateSitemap($categories)
     {
         $sitemapContent = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
         $sitemapContent .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . PHP_EOL;
-
-        // URL home page
-        $homepageUrl = url('/');
-        $sitemapContent .= '<url>' . PHP_EOL;
-        $sitemapContent .= '<loc>' . $homepageUrl . '</loc>' . PHP_EOL;
-        $sitemapContent .= '<priority>1.0</priority>' . PHP_EOL;
-        $sitemapContent .= '</url>' . PHP_EOL;
-
-        // URL trang bài đăng
-        $postUrl = url('/posts');
-        $sitemapContent .= '<url>' . PHP_EOL;
-        $sitemapContent .= '<loc>' . $postUrl . '</loc>' . PHP_EOL;
-        $sitemapContent .= '<priority>0.8</priority>' . PHP_EOL;
-        $sitemapContent .= '</url>' . PHP_EOL;
 
         foreach ($categories as $category) {
             $fileNameCategory = 'sitemaps/sitemap-' . $category->slug . '.xml';
