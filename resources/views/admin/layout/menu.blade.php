@@ -1,14 +1,15 @@
 <div class="left-side-menu">
-
     <div class="slimscroll-menu">
-
         <!--- Sidemenu -->
         <div id="sidebar-menu">
-
             <ul class="metismenu" id="side-menu">
-
                 <li class="menu-title">Navigation</li>
-
+                <li>
+                    <a href="{{ route('admin.dashboard') }}">
+                        <i class="la la-dashboard"></i>
+                        <span> {{ __('common.lbl_dashboard') }} </span>
+                    </a>
+                </li>
                 <li>
                     <a href="javascript: void(0);">
                         <i class="la la-cube"></i>
@@ -24,7 +25,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);">
                         <i class="la la-file"></i>
@@ -40,14 +40,29 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="la la-sitemap"></i>
+                        <span> {{ __('sitemap.lbl_sitemap') }} </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('admin.optimize_sitemap') }}">{{ __('sitemap.lbl_optimize') }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://databases.000webhost.com/" target="_blank">
+                        <i class="la la-database"></i>
+                        <span> {{ __('common.lbl_database') }} </span>
+                    </a>
+                </li>
             </ul>
 
         </div>
         <!-- End Sidebar -->
-
         <div class="clearfix"></div>
-
     </div>
     <!-- Sidebar -left -->
-
 </div>
