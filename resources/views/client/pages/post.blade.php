@@ -101,7 +101,7 @@
     <style>
         .container-post img {
             max-width: 100% !important;
-            max-height: 500px !important;
+            max-height: 550px !important;
         }
 
         pre {
