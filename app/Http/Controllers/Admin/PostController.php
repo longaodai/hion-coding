@@ -66,20 +66,24 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $path = !empty($request->file('image')) ? $this->storeImage($request->file('image'), 'post') : '';
-        $data = [
-            'post_title' => $request->get('name'),
-            'post_slug' => $request->get('name'),
-            'category_id' => $request->get('category_id'),
-            'author_id' => 1,
-            'post_image' => $path,
-            'post_description' => $request->get('description'),
-            'post_active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
-        ];
+        try {
+            $path = !empty($request->file('image')) ? $this->storeImage($request->file('image'), 'post') : '';
+            $data = [
+                'post_title' => $request->get('name'),
+                'post_slug' => $request->get('slug'),
+                'category_id' => $request->get('category_id'),
+                'author_id' => 1,
+                'post_image' => $path,
+                'post_description' => $request->get('description'),
+                'post_active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
+            ];
 
-        $this->service->store($data);
+            $this->service->store($data);
 
-        return redirect()->back()->with('success', __('common.msg_add_success'));
+            return redirect()->back()->with('success', __('common.msg_add_success'));
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', __('common.msg_add_failure'));
+        }
     }
 
     /**
@@ -112,28 +116,32 @@ class PostController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        $path = !empty($request->file('image')) ? $this->updateImage($request->file('image'), $request->get('old_image'), 'post') : '';
-        $data = [
-            'post_title' => $request->get('name'),
-            'post_slug' => Str::slug($request->get('name')),
-            'category_id' => $request->get('category_id'),
-            'author_id' => $request->get('author_id'),
-            'post_description' => $request->get('description'),
-            'post_active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
-        ];
+        try {
+            $path = !empty($request->file('image')) ? $this->updateImage($request->file('image'), $request->get('old_image'), 'post') : '';
+            $data = [
+                'post_title' => $request->get('name'),
+                'post_slug' => $request->get('slug'),
+                'category_id' => $request->get('category_id'),
+                'author_id' => $request->get('author_id'),
+                'post_description' => $request->get('description'),
+                'post_active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
+            ];
 
-        if (!empty($path)) {
-            $data['post_image'] = $path;
+            if (!empty($path)) {
+                $data['post_image'] = $path;
+            }
+
+            $post = $this->service->update($data, collect(['id' => $id]));
+
+            /**Remove image post old when updated success and has image new */
+            if (!empty($path) && $post && file_exists(public_path('storage/' . $request->get('old_image')))) {
+                unlink(storage_path('app/' . $request->get('old_image')));
+            }
+
+            return redirect()->back()->with('success', __('common.msg_update_success'));
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', __('common.msg_update_failure'));
         }
-
-        $post = $this->service->update($data, collect(['id' => $id]));
-
-        /**Remove image post old when updated success and has image new */
-        if (!empty($path) && $post && file_exists(public_path('storage/' . $request->get('old_image')))) {
-            unlink(storage_path('app/' . $request->get('old_image')));
-        }
-
-        return redirect()->back()->with('success', __('common.msg_update_success'));
     }
 
     /**

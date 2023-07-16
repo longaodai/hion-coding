@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests\Post;
 
-use App\Services\Categories\CategoryServiceInterface;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Services\Categories\CategoryServiceInterface;
 
 class StoreRequest extends FormRequest
 {
@@ -30,6 +31,7 @@ class StoreRequest extends FormRequest
 
         return [
             'name' => 'required|min:3|max:100',
+            'slug' => 'required|min:3|max:100|unique:posts,post_slug',
             'category_id' => 'nullable|valid_category_id',
             'active' => ['bail', 'nullable', Rule::in([ACTIVE_SHOW, NOT_ACTIVE_SHOW])],
         ];
@@ -40,7 +42,7 @@ class StoreRequest extends FormRequest
         Validator::extend('valid_category_id', function ($attribute, $value, $parameters) {
             $categoryService = app(CategoryServiceInterface::class);
             $dataCategory = $categoryService->show(['id' => $value]);
-           
+
             return !empty($dataCategory);
         });
     }

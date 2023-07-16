@@ -32,6 +32,7 @@ class UpdateRequest extends FormRequest
         return [
             'id' => 'required|valid_post',
             'name' => 'required|min:3|max:100',
+            'slug' => 'required|min:3|max:100|unique:posts,post_slug,' . $this->id,
             'category_id' => 'nullable|valid_category_id',
             'active' => ['bail', 'nullable', Rule::in([ACTIVE_SHOW, NOT_ACTIVE_SHOW])],
         ];
@@ -51,7 +52,7 @@ class UpdateRequest extends FormRequest
             $dataCategory = $categoryService->getFirstBy(collect(
                 ['id' => $value]
             ));
-           
+
             return !empty($dataCategory);
         });
 
@@ -64,10 +65,10 @@ class UpdateRequest extends FormRequest
             if (empty($dataPost)) {
                 return false;
             }
-            
+
             $this->request->set('author_id', $dataPost->author_id);
             $this->request->set('old_image', $dataPost->post_image);
-           
+
             return true;
         });
     }
