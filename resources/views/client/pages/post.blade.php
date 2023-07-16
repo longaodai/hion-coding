@@ -65,7 +65,7 @@
         <div class="row">
             @if ($postRelation->count() > 0)
                 @foreach ($postRelation as $post)
-                    <div class="col-xl-6 col-lg-12 text-center">
+                    <div class="col-lg-12 text-center">
                         <a href="{{ route('post-detail', ['slug' => $post->post_slug]) }}">
                             <div class="article-card">
                                 <div class="article-img">
