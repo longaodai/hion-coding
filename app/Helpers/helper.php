@@ -31,7 +31,7 @@ if (!function_exists('setDataMeta')) {
         if (!empty($options->get('is_post'))) {
             if (!empty($data->post_title)) OpenGraph::set('title', $data->post_title);
             if (!empty($data->post_description)) OpenGraph::set('description', strip_tags(Str::limit($data->post_description, 100, '...')));
-            if (!empty($data->post_image)) OpenGraph::set('image', getPathImage($data->post_image));
+            if (!empty($data->post_image)) OpenGraph::set('image', asset(getPathImage($data->post_image)));
         }
     }
 }
