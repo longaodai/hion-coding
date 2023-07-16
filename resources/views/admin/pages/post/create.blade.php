@@ -26,6 +26,18 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
+                                    <label for="lbl_slug">{{ __('post.lbl_slug') }}
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="slug" id="lbl_slug" class="form-control"
+                                        value="{{ old('slug') }}" placeholder="{{ __('post.lbl_slug') }}">
+                                    @error('slug')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
                                     <label for="lbl_image">{{ __('common.lbl_image') }}
                                         <span class="text-danger">*</span>
                                     </label>

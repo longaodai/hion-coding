@@ -5,13 +5,6 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
-/**
- * Add service external shoppe for affiliate
- */
-if (file_exists('../external/shopee.php')) {
-    require_once '../external/shopee.php';
-}
-
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance

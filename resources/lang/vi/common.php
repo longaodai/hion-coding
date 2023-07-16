@@ -37,4 +37,6 @@ return [
     'msg_update_success' => 'Update successfully',
     'lbl_dashboard' => 'Dashboard',
     'lbl_database' => 'Database',
+    'msg_add_failure' => 'Add failure',
+    'msg_update_failure' => 'Update failure',
 ];

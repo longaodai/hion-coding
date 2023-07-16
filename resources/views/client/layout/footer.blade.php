@@ -2,34 +2,9 @@
     <div class="container ">
         <div class="row pb-1" style="align-items: center">
             <!-- Footer logo -->
-            <div class="col-lg-3 col-md-12"><img class="logo-image" src="{{ asset('common/images/logo.png') }}"></div>
-
-            <!-- footer links -->
-            <div class="col-lg-6 col-md-12">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('home') }}">{{ __('common.lbl_home_nav') }}</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">{{ __('common.lbl_about_nav') }}</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('posts') }}">{{ __('common.lbl_post_nav') }}</a>
-                    </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" target="_blank"
-                            href="https://giaiphap2022.000webhostapp.com/">{{ __('common.lbl_funny_nav') }}</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact') }}">{{ __('common.lbl_contact_nav') }}</a>
-                    </li>
-                </ul>
-            </div>
-
+            <div class="col-md-6  pb-2"><img class="logo-image" src="{{ asset('common/images/logo.png') }}"></div>
             <!-- footer social links -->
-            <div class="col-lg-3 col-md-12">
+            <div class="col-md-6">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
                         <a class="nav-link active btn btn-light" target="_blank"
