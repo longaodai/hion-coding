@@ -9,7 +9,8 @@
                         <h4 class="header-title">{{ __('post.lbl_edit') }}</h4>
                     </div>
                     <hr>
-                    <form method="POST" action="{{ route('admin.post.update', ['id' => $data->id]) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.post.update', ['id' => $data->id]) }}"
+                        enctype="multipart/form-data">
                         @method('PATCH')
                         @csrf
                         <input type="hidden" name="id" value="{{ $data->id }}">
@@ -35,7 +36,8 @@
                                     <select name="category_id" id="lbl_category" class="form-control">
                                         <option value="">---</option>
                                         @foreach ($dataCategory as $category)
-                                            <option {{ old('category_id', $data->category_id) == $category->id ? 'selected' : '' }}
+                                            <option
+                                                {{ old('category_id', $data->category_id) == $category->id ? 'selected' : '' }}
                                                 value="{{ !empty($category->id) ? $category->id : '' }}">
                                                 {{ !empty($category->name) ? $category->name : '' }}</option>
                                         @endforeach
@@ -57,7 +59,8 @@
                                     </div>
                                     <div class="input-group mt-3">
                                         <img src="{{ asset(getPathImage(!empty($data->post_image) ? $data->post_image : '')) }}"
-                                        alt="{{ !empty($data->post_title) ? $data->post_title : '' }}" style="width: 100px">
+                                            alt="{{ !empty($data->post_title) ? $data->post_title : __('common.lbl_default_alt') }}"
+                                            style="width: 100px">
                                     </div>
                                     @error('image')
                                         <span class="text-danger">{{ $message }}</span>

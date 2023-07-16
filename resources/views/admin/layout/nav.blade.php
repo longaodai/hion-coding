@@ -60,10 +60,12 @@
     <div class="logo-box">
         <a href="{{ route('home') }}" target="_blank" class="logo text-center">
             <span class="logo-lg">
-                <img src="{{ asset('common/images/logo.png') }}" alt="" height="80" style="margin-top: 10px">
+                <img src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}" height="80"
+                    style="margin-top: 10px">
             </span>
             <span class="logo-sm">
-                <img src="{{ asset('common/images/logo.png') }}" alt="" height="28">
+                <img src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}"
+                    height="28">
             </span>
         </a>
     </div>

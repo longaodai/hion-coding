@@ -7,7 +7,7 @@
             <div class="col-lg-6 hero-img-container">
                 <div class="hero-img">
                     <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
-                        alt="{{ !empty($post->post_title) ? $post->post_title : '' }}">
+                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}">
                 </div>
             </div>
 
@@ -21,7 +21,8 @@
             <div class="col-lg-6">
                 <div class="hero-meta">
                     <div class="author">
-                        <div class="author-img"><img src="{{ asset('client/img/author-img.png') }}"></div>
+                        <div class="author-img"><img src="{{ asset('client/img/author-img.png') }}"
+                                alt="{{ __('common.lbl_default_alt') }}"></div>
                         <div class="author-meta">
                             <span class="author-name">{{ !empty($post->user->name) ? $post->user->name : '' }}</span>
                             <span class="author-tag">{{ !empty($post->user->email) ? $post->user->email : '' }}</span>
@@ -31,13 +32,8 @@
                         class="date mt-2">{{ !empty($post->updated_at) ? formatDate($post->updated_at, 'jS F Y') : '' }}</span>
 
                     <div class="tags mt-2">
-                        <p class="btn btn-success badge-sm">{{ !empty($post->category->name) ? $post->category->name : '' }}
-                        </p>
-                        {{-- <a href=""><span class="badge badge-pill p-2 badge-light">#Travel</span></a>
-                        <a href="">
-                            <span class="badge badge-pill p-2 badge-light">#Flight</span></a>
-                        <a href="">
-                            <span class="badge badge-pill p-2 badge-light">#Vlogger</span></a> --}}
+                        <a class="tag">{{ !empty($post->category->name) ? $post->category->name : '' }}
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,16 +69,18 @@
                         <a href="{{ route('post-detail', ['slug' => $post->post_slug]) }}">
                             <div class="article-card">
                                 <div class="article-img">
-                                    <img
-                                        src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}">
+                                    <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
+                                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}">
                                 </div>
                                 <div class="article-meta text-left">
                                     <p style="margin: 0;">
                                         <i>{{ !empty($post->updated_at) ? formatDate($post->updated_at, 'jS F Y') : '' }}</i>
                                     </p>
                                     <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
-                                    <p class="btn btn-success badge-sm">
-                                        {{ !empty($post->category->name) ? $post->category->name : '' }}</p>
+                                    <div class="tags">
+                                        <a class="tag">
+                                            {{ !empty($post->category->name) ? $post->category->name : '' }}</a>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -90,7 +88,7 @@
                 @endforeach
             @else
                 <div class="col-xl-6 col-lg-12 text-center">
-                    <i>{{ __('post.lbl_not_data_available') }}</i>
+                    <center><span>{{ __('post.lbl_not_data_available') }}</span></center>
                 </div>
             @endif
         </div>
@@ -99,14 +97,13 @@
 
 @section('style-extend')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+    <link rel="stylesheet" href="{{ asset('common/style/style.css') }}">
     <style>
         .container-post img {
             max-width: 100% !important;
             max-height: 500px !important;
         }
-    </style>
-    <style>
-        /* Tệp CSS tùy chỉnh */
+
         pre {
             background-color: #1d1f21;
             color: #c5c8c6;

@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{{ route('home') }}"><img class="logo-image"
-                src="{{ asset('common/images/logo.png') }}"></a>
+                src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}"></a>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 
@@ -21,11 +21,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('posts') }}">{{ __('common.lbl_post_nav') }}</a>
                 </li>
-
-                {{-- <li class="nav-item">
-                    <a class="nav-link" target="_blank"
-                        href="https://giaiphap2022.000webhostapp.com/">{{ __('common.lbl_funny_nav') }}</a>
-                </li> --}}
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">{{ __('common.lbl_contact_nav') }}</a>
