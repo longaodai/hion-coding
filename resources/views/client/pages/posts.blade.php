@@ -9,15 +9,18 @@
                         <a href="{{ route('post-detail', ['slug' => $post->post_slug]) }}">
                             <div class="article-card">
                                 <div class="article-img">
-                                    <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}" alt="{{ !empty($post->post_title) ? $post->post_title : '' }}">
+                                    <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
+                                        alt="{{ !empty($post->post_title) ? $post->post_title : '' }}">
                                 </div>
                                 <div class="article-meta text-left">
                                     <p style="margin: 0;">
                                         <i>{{ !empty($post->updated_at) ? formatDate($post->updated_at, 'jS F Y') : '' }}</i>
                                     </p>
                                     <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
-                                    <p class="btn btn-success badge-sm">
-                                        {{ !empty($post->category->name) ? $post->category->name : '' }}</p>
+                                    {{-- <div class="tags"> --}}
+                                    <a class="tag">
+                                        {{ !empty($post->category->name) ? $post->category->name : '' }}</a>
+                                    {{-- </div> --}}
                                 </div>
                             </div>
                         </a>
@@ -36,4 +39,8 @@
             {{ $dataPost->render('pagination::bootstrap-4') }}
         </div>
     </div>
+@endsection
+
+@section('style-extend')
+    <link rel="stylesheet" href="{{ asset('common/style/style.css') }}">
 @endsection

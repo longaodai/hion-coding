@@ -11,7 +11,7 @@ class OpenGraph
      */
     protected static $values = [
         'title' => 'OHION - Blogs share everything',
-        'description' => 'Blogs share everything',
+        'description' => 'Ohion blogs share everything',
         'image' => './common/images/logo.png',
     ];
 

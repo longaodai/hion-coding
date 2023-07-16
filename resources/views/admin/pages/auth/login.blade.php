@@ -40,8 +40,8 @@
                         <div class="card-body p-4">
                             <div class="text-center w-75 m-auto">
                                 <a href="index.html">
-                                    <span><img src="{{ asset('common/images/logo.png') }}" alt=""
-                                            height="100"></span>
+                                    <span><img src="{{ asset('common/images/logo.png') }}"
+                                            alt="{{ __('common.lbl_default_alt') }}" height="100"></span>
                                 </a>
                             </div>
                             @include('admin.notifications.toast')
