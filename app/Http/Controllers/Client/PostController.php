@@ -60,6 +60,10 @@ class PostController extends Controller
             ])
         );
 
+        if (empty($post)) {
+            return abort(404);
+        }
+
         $postRelation = $this->postService->all(
             collect([
                 'is_active' => true,
