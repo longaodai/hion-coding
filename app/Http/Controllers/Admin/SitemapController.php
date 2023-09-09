@@ -4,25 +4,42 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Services\Categories\CategoryServiceInterface;
+use App\Services\Posts\PostServiceInterface;
 use Illuminate\Http\Request;
 
 class SitemapController extends Controller
 {
     private $categoryService;
+    private $postService;
+    private $pages = [
+        [
+            'url' => '/',
+            'priority' => '1.00'
+        ],
+        [
+            'url' => '/about',
+            'priority' => '0.80'
+        ],
+        [
+            'url' => '/posts',
+            'priority' => '0.80'
+        ],
+        [
+            'url' => '/contact',
+            'priority' => '0.80'
+        ],
+    ];
 
-    public function __construct(CategoryServiceInterface $categoryService)
+    public function __construct(CategoryServiceInterface $categoryService, PostServiceInterface $postService)
     {
         $this->categoryService = $categoryService;
+        $this->postService = $postService;
     }
 
     public function index()
     {
-        $categories = $this->categoryService->all(
-            collect([
-                'with_posts' => true
-            ])
-        );
-        $resultCreateSiteMap = $this->generateSitemap($categories);
+        $posts = $this->postService->all();
+        $resultCreateSiteMap = $this->renewGenerateSiteMap($posts);
 
         if ($resultCreateSiteMap) {
             return redirect(route('admin.dashboard'))->with('success', __('sitemap.msg_optimize_success'));
@@ -79,6 +96,40 @@ class SitemapController extends Controller
         }
 
         file_put_contents(public_path($fileName), $sitemapContent);
+
+        return true;
+    }
+
+    private function renewGenerateSiteMap($posts)
+    {
+        $sitemapContent = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
+        $sitemapContent .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . PHP_EOL;
+        $lastmod = date('Y-m-d H:i') . ' +00:00';
+
+        foreach ($this->pages as $page) {
+            $url = url($page['url']);
+            $sitemapContent .= '<url>' . PHP_EOL;
+            $sitemapContent .= '<loc>' . $url . '</loc>' . PHP_EOL;
+            $sitemapContent .= '<lastmod>' . $lastmod . '</lastmod>' . PHP_EOL;
+            $sitemapContent .= '<priority>' . $page['priority'] . '</priority>' . PHP_EOL;
+            $sitemapContent .= '</url>' . PHP_EOL;
+        }
+
+        foreach ($posts as $post) {
+            if (empty($post->post_slug)) {
+                continue;
+            }
+
+            $sitemapUrl = url('/post/' . $post->post_slug);
+            $sitemapContent .= '<url>' . PHP_EOL;
+            $sitemapContent .= '<loc>' . $sitemapUrl . '</loc>' . PHP_EOL;
+            $sitemapContent .= '<lastmod>' . $lastmod . '</lastmod>' . PHP_EOL;
+            $sitemapContent .= '<priority>0.80</priority>' . PHP_EOL;
+            $sitemapContent .= '</url>' . PHP_EOL;
+        }
+
+        $sitemapContent .= '</sitemapindex>';
+        file_put_contents(public_path('sitemaps.xml'), $sitemapContent);
 
         return true;
     }

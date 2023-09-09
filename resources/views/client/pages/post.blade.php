@@ -104,24 +104,8 @@
             max-height: 550px !important;
         }
 
-        pre {
-            background-color: #1d1f21;
-            color: #c5c8c6;
-        }
-
-        code {
-            color: #c5c8c6;
-        }
-
-        .language-php .token.string {
-            color: #b5cea8;
-        }
-
-        .language-php .token.comment,
-        .language-php .token.prolog,
-        .language-php .token.doctype,
-        .language-php .token.cdata {
-            color: #8e908c;
+        .container-post {
+            margin-top: 0 !important;
         }
     </style>
 @endsection
