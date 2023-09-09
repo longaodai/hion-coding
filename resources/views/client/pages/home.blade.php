@@ -4,7 +4,7 @@
     <div class="container" id="hero">
         <div class="row justify-content-end">
             <div class="col-lg-6 hero-img-container">
-                <a href="./single.html">
+                <a href="{{ route('home') }}">
                     <div class="hero-img">
                         <img src="{{ asset('common/images/banner.jpeg') }}" alt="{{ __('common.lbl_default_alt') }}">
                     </div>
@@ -13,7 +13,7 @@
 
             <div class="col-lg-9">
                 <div class="hero-title">
-                    <a href="./single.html">
+                    <a href="{{ route('home') }}">
                         <h1>{{ __('home.lbl_desciption') }}</h1>
                     </a>
                 </div>
