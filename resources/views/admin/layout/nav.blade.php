@@ -32,7 +32,7 @@
                     </h5>
                 </div>
 
-                <!-- item-->
+                {{-- <!-- item-->
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="fe-user"></i>
                     <span>My Account</span>
@@ -42,7 +42,7 @@
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="fe-settings"></i>
                     <span>Settings</span>
-                </a>
+                </a> --}}
 
                 <div class="dropdown-divider"></div>
 
