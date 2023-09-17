@@ -11,63 +11,60 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     /**
      * @param Posts $app
      */
-    public function __construct(Posts $app)
+    public function model()
     {
-        $this->app = $app;
-        
-        parent::__construct();
+        return Posts::class;
     }
 
     /**
      * Get list
      *
-     * @param  $data
-     * @param  $options
+     * @param  $params
      * 
      * @return 
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function getList($data = null, $options = null)
+    public function getList($params)
     {
-        $this->thisModel('orderBy', 'id', 'DESC');
-        $this->thisModel('with', 'category');
+        $this->method('orderBy', 'id', 'DESC');
+        $this->method('with', 'category');
 
-        return parent::getList($data, $options);
+        return parent::getList($params);
     }
 
-     /**
+    /**
      * Get all
      *
-     * @param  $data
+     * @param $params
      * 
      * @return 
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function all($data = null)
+    public function all($params)
     {
-        $this->setModel();
-        $this->thisModel('orderBy', 'updated_at', 'DESC');
+        $this->resetModel();
+        $this->method('orderBy', 'updated_at', 'DESC');
 
-        return parent::all($data);
+        return parent::all($params);
     }
 
     /**
      * Update
      *
      * @param  $params
-     * @param  $options
      * 
      * @return 
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function update($params = null, $options = null)
+    public function update($params)
     {
-        $this->mark($options);
-        
-        return parent::update($params, $options);
+        $this->resetModel();
+        $this->mask($params);
+
+        return parent::update($params);
     }
 
     /**
@@ -79,13 +76,17 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function mark($params = null)
+    public function mask($params)
     {
-        if (!empty($params) && !empty($params->get('id'))) {
-            $this->thisModel('where', 'id', $params->get('id'));
+        if (!empty($params->option('id'))) {
+            $this->method('where', 'id', $params->option('id'));
         }
 
-        return parent::mark($params);
+        if (!empty($params->option('post_slug'))) {
+            $this->method('where', 'post_slug', $params->option('post_slug'));
+        }
+
+        return parent::mask($params);
     }
 
     /**
@@ -97,40 +98,38 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function filter($params = null)
+    public function filter($params)
     {
-        if (!empty($params) && $params instanceof Collection) {
-            if (!empty($params->get('is_active'))) {
-                $this->thisModel('where', 'post_active', $params->get('is_active'));
-            }
+        if (!empty($params->get('is_active'))) {
+            $this->method('where', 'post_active', $params->get('is_active'));
+        }
 
-            if (!empty($params->get('post_slug'))) {
-                $this->thisModel('where', 'post_slug', $params->get('post_slug'));
-            }
+        if (!empty($params->get('post_slug'))) {
+            $this->method('where', 'post_slug', $params->get('post_slug'));
+        }
 
-            if (!empty($params->get('with_users'))) {
-                $this->thisModel('with', 'user');
-            }
+        if (!empty($params->get('with_users'))) {
+            $this->method('with', 'user');
+        }
 
-            if (!empty($params->get('with_category'))) {
-                $this->thisModel('with', 'category');
-            }
+        if (!empty($params->get('with_category'))) {
+            $this->method('with', 'category');
+        }
 
-            if (!empty($params->get('limit'))) {
-                $this->thisModel('limit', $params->get('limit'));
-            }
+        if (!empty($params->get('limit'))) {
+            $this->method('limit', $params->get('limit'));
+        }
 
-            if (!empty($params->get('id'))) {
-                $this->thisModel('where', 'id', $params->get('id'));
-            }
+        if (!empty($params->get('id'))) {
+            $this->method('where', 'id', $params->get('id'));
+        }
 
-            if (!empty($params->get('not_post_id'))) {
-                $this->thisModel('where', 'id', '!=', $params->get('not_post_id'));
-            }
+        if (!empty($params->get('not_post_id'))) {
+            $this->method('where', 'id', '!=', $params->get('not_post_id'));
+        }
 
-            if (!empty($params->get('category_id'))) {
-                $this->thisModel('where', 'category_id', $params->get('category_id'));
-            }
+        if (!empty($params->get('category_id'))) {
+            $this->method('where', 'category_id', $params->get('category_id'));
         }
 
         return parent::filter($params);

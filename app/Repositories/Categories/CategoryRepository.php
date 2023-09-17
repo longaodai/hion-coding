@@ -11,57 +11,54 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     /**
      * @param Categories $app
      */
-    public function __construct(Categories $app)
+    public function model()
     {
-        $this->app = $app;
-
-        parent::__construct();
+        return Categories::class;
     }
 
     /**
      * Get list
      *
-     * @param  $data
-     * @param  $options
+     * @param  $params
      * 
      * @return 
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function getList($data = null, $options = null)
+    public function getList($params)
     {
-        return parent::getList();
+        return parent::getList($params);
     }
 
     /**
      * Get all
      *
-     * @param  $data
+     * @param  $params
      * 
      * @return 
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function all($data = null)
+    public function all($params)
     {
-        return parent::all($data);
+        return parent::all($params);
     }
 
     /**
      * Update
      *
      * @param  $params
-     * @param  $options
      * 
      * @return 
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function update($params = null, $options = null)
+    public function update($params)
     {
-        $this->mark($options);
+        $this->resetModel();
+        $this->mask($params);
 
-        return parent::update($params, $options);
+        return parent::update($params);
     }
 
     /**
@@ -73,13 +70,13 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
      * 
      * @author longvc <vochilong.work@gmail.com>
      */
-    public function mark($params = null)
+    public function mask($params)
     {
-        if (!empty($params) && !empty($params->get('id'))) {
-            $this->thisModel('where', 'id', $params->get('id'));
+        if (!empty($params->option('id'))) {
+            $this->method('where', 'id', $params->option('id'));
         }
 
-        return parent::mark($params);
+        return parent::mask($params);
     }
 
     /**
@@ -93,18 +90,16 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
      */
     public function filter($params = null)
     {
-        if (!empty($params) && $params instanceof Collection) {
-            if (!empty($params->get('id'))) {
-                $this->thisModel('where', 'id', $params->get('id'));
-            }
+        if (!empty($params->get('id'))) {
+            $this->method('where', 'id', $params->get('id'));
+        }
 
-            if (!empty($params->get('not_id'))) {
-                $this->thisModel('where', 'id', '!=', $params->get('not_id'));
-            }
+        if (!empty($params->get('not_id'))) {
+            $this->method('where', 'id', '!=', $params->get('not_id'));
+        }
 
-            if (!empty($params->get('with_posts'))) {
-                $this->thisModel('with', 'posts');
-            }
+        if (!empty($params->get('with_posts'))) {
+            $this->method('with', 'posts');
         }
 
         return parent::filter($params);

@@ -2,150 +2,247 @@
 
 namespace App\Repositories;
 
-abstract class  BaseRepository
+use Illuminate\Container\Container;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
+/**
+ * Class BaseRepository
+ *
+ * @package App\Services\Repositories
+ */
+abstract class BaseRepository
 {
+    /**
+     * @var Container
+     */
     protected $app;
+
+    /**
+     * @var Model
+     */
     protected $model;
 
-    public function __construct()
+    /**
+     * BaseRepository constructor.
+     *
+     * @param Container $app
+     */
+    public function __construct(Container $app)
     {
-        $this->setModel();
+        $this->app = $app;
+        $this->makeModel();
     }
 
     /**
-     * Set model
+     * @return mixed
+     */
+    abstract function model();
+
+    /**
+     * @param null $modelName
+     *
+     * @return Model
+     *
+     * @throws ModelNotFoundException
+     */
+    public function makeModel($modelName = null)
+    {
+        $model = empty($modelName) ? $this->app->make($this->model()) : $this->app->make($modelName);
+
+        if (!$model instanceof Model) {
+            throw new ModelNotFoundException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+        }
+
+        return $this->model = $model->newQuery();
+    }
+
+    /**
+     * @param null $modelName
+     *
+     * @return Model
+     */
+    public function setModel($modelName = null)
+    {
+        return $this->makeModel($modelName);
+    }
+
+    /**
+     * Get table name
      *
      * @return mixed
-     * 
-     * @author longvc <vochilong.work@gmail.com>
      */
-    public function setModel()
+    public function getTable()
     {
-        return $this->model = $this->app->newQuery();
+        return $this->getModel()->getTable();
     }
 
     /**
-     * This model
+     * @param bool $ignore
      *
      * @return mixed
-     * 
-     * @author longvc <vochilong.work@gmail.com>
      */
-    public function thisModel($query)
+    public function resetModel()
     {
-        $array = func_get_args();
-        unset($array[0]);
+        $this->model = $this->makeModel();
 
-        return $this->model->{$query}(...$array);
+        return $this->model;
     }
 
     /**
-     * Get all
+     * @return mixed
+     */
+    public function getModel()
+    {
+        return $this->method('getModel');
+    }
+
+    /**
+     * @param $name
      *
      * @return mixed
-     * 
-     * @author longvc <vochilong.work@gmail.com>
      */
-    public function all($data = null)
+    public function method($name)
     {
-        $this->filter($data);
+        $argList = func_get_args();
+        unset($argList[0]);
 
-        return $this->model->get();
+        return $this->model->{$name}(...$argList);
     }
 
     /**
-     * Get list
+     * @param object $params
      *
      * @return mixed
-     * 
-     * @author longvc <vochilong.work@gmail.com>
      */
-    public function getList($data = null, $params = null)
-    {
-        $this->filter($data);
-        
-        return  $this->thisModel('paginate', $this->getPagination($params));
-    }
-
-    /**
-     * Handle pagination
-     *
-     * @return mixed
-     * 
-     * @author longvc <vochilong.work@gmail.com>
-     */
-    private function getPagination($params)
-    {   
-        if (empty($params)) return PAGINATION_PAGE_DEFAULT;
-
-        return !empty($params->get('set_pagination')) 
-            ? $params->get('set_pagination') : PAGINATION_PAGE_DEFAULT;
-    }
-
-     /**
-     * @param null $params
-     */
-    public function store($params = null)
-    {
-        return $this->app->create($params);
-    }
-
-    /**
-     * @param null $params
-     */
-    public function update($params = null, $options = null)
-    {
-        return $this->model->update($params);
-    }
-
-    /**
-     * @param null $params
-     */
-    public function getFirstBy($params = null)
+    public function all($params)
     {
         $this->filter($params);
 
-        return $this->model->first();
-    }
-
-     /**
-     * @param null $params
-     */
-    public function show($params = null)
-    {
-        return $this->app->find($params);
+        return $this->method('get');
     }
 
     /**
-     * @param null $data
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function delete($data = null, $options = null)
+    public function count($params)
     {
-        $this->filter($data);
+        $this->filter($params);
 
-        return $this->model->delete();
+        return $this->method('count');
     }
 
     /**
-     * @param null $params
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function insert($params = null)
+    public function getList($params)
     {
-        return $this->app->insert($params);
+        $this->filter($params);
+
+        return $this->method('paginate', $this->getLimitPaginate($params));
     }
 
     /**
-     * @param null $params
+     * @param object $params
+     *
+     * @return int
      */
-    public function filter($params = null)
+    protected function getLimitPaginate($params)
+    {
+        return (!empty($params->option('limit'))) ? $params->option('limit') : PAGINATION_PAGE_DEFAULT;
+    }
+
+
+    /**
+     * @param object $params
+     *
+     * @return mixed
+     */
+    public function find($params)
+    {
+        return $this->method('find', $params->get('id'));
+    }
+
+    /**
+     * @param object $params
+     *
+     * @return mixed
+     */
+    public function first($params)
+    {
+        $this->filter($params);
+
+        return $this->method('first');
+    }
+
+    /**
+     * @param object $params
+     *
+     * @return mixed
+     */
+    public function create($params)
+    {
+        return $this->method('create', $params->get());
+    }
+
+    /**
+     * @param object $params
+     *
+     * @return mixed
+     */
+    public function insert($params)
+    {
+        return $this->method('insert', $params->get());
+    }
+
+    /**
+     * @param object $params
+     *
+     * @return mixed
+     */
+    public function update($params)
+    {
+        $this->mask($params);
+
+        return $this->method('update', $params->get());
+    }
+
+    /**
+     * @param object $params
+     *
+     * @return mixed
+     */
+    public function destroy($params)
+    {
+        $this->filter($params);
+
+        return $this->method('delete');
+    }
+
+    /**
+     * Filter for select
+     *
+     * @param object $params
+     *
+     * @return mixed
+     */
+    protected function filter($params)
     {
         return $this;
     }
 
     /**
-     * @param null $params
+     * Filter for update
+     *
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function mark($params = null)
+    protected function mask($params)
     {
         return $this;
     }

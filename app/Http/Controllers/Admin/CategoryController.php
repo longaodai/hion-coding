@@ -32,7 +32,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data = $this->categoryService->getList();
-        
+
         return view('admin.pages.category.index', compact('data'));
     }
 
@@ -67,7 +67,7 @@ class CategoryController extends Controller
             'description' => $request->get('description'),
             'active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
         ];
-        
+
         $this->categoryService->store($data);
 
         return redirect()->back()->with('success', __('common.msg_add_success'));
@@ -84,7 +84,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $data = $this->categoryService->show($id);
+        $data = $this->categoryService->show(
+            collect([
+                'id' => $id
+            ])
+        );
 
         return view('admin.pages.category.edit', compact('data'));
     }

@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->integer('author_id')->nullable();
             $table->integer('category_id')->nullable();
             $table->tinyInteger('post_active');
+            $table->tinyInteger('post_views')->nullable()->default(0);
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
