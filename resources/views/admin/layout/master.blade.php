@@ -19,6 +19,7 @@
     <link href="{{ asset('admin_libs_asset\css\bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin_libs_asset\css\icons.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin_libs_asset\css\app.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('common/style/style.css') }}">
     @yield('style')
 
 </head>

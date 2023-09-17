@@ -98,7 +98,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $data = $this->service->show($id);
+        $data = $this->service->show(
+            collect([
+                'id' => $id,
+            ])
+        );
         $categoryService = app(CategoryServiceInterface::class);
         $dataCategory = $categoryService->all();
 

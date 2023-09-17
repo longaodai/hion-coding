@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Services\Posts\PostServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -52,28 +53,59 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        $post = $this->postService->getFirstBy(
-            collect([
-                'post_slug' => $slug,
-                'with_users' => true,
-                'with_category' => true,
-            ])
-        );
+        try {
+            $post = $this->postService->getFirstBy(
+                collect([
+                    'post_slug' => $slug,
+                    'with_users' => true,
+                    'with_category' => true,
+                ])
+            );
 
-        if (empty($post)) {
+            if (empty($post)) {
+                return abort(404);
+            }
+
+            $postRelation = $this->postService->all(
+                collect([
+                    'is_active' => true,
+                    'limit' => 2,
+                    'category_id' => $post->category_id,
+                    'not_post_id' => $post->id,
+                ])
+            );
+            setDataMeta($post, collect(['is_post' => true]));
+            $this->addViewPost($slug, $post->post_views);
+
+            return view('client.pages.post', compact('post', 'postRelation'));
+        } catch (\Exception $exeption) {
+            Log::debug('---------- SHOW POST CLIENT ERROR ----------');
+            Log::debug($exeption->getMessage());
+            Log::debug('---------- END SHOW POST CLIENT ERROR ----------');
+
             return abort(404);
         }
+    }
 
-        $postRelation = $this->postService->all(
-            collect([
-                'is_active' => true,
-                'limit' => 2,
-                'category_id' => $post->category_id,
-                'not_post_id' => $post->id,
-            ])
-        );
-        setDataMeta($post, collect(['is_post' => true]));
+    private function addViewPost($slug, $views = 0)
+    {
+        if (empty($slug)) {
+            return;
+        }
 
-        return view('client.pages.post', compact('post', 'postRelation'));
+        try {
+            $this->postService->update(
+                collect([
+                    'post_views' => $views + 1,
+                ]),
+                collect([
+                    'post_slug' => $slug,
+                ])
+            );
+        } catch (\Exception $exeption) {
+            Log::debug('---------- ADD VIEW POST CLIENT ERROR ----------');
+            Log::debug($exeption->getMessage());
+            Log::debug('---------- END ADD VIEW POST CLIENT ERROR ----------');
+        }
     }
 }

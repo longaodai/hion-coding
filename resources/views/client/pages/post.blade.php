@@ -27,6 +27,10 @@
                         <div class="author-meta">
                             <span class="author-name">{{ !empty($post->user->name) ? $post->user->name : '' }}</span>
                             <span class="author-tag">{{ !empty($post->user->email) ? $post->user->email : '' }}</span>
+                            @if (auth()->check())
+                                <span class="author-tag">Views:
+                                    {{ !empty($post->post_views) ? $post->post_views : 0 }}</span>
+                            @endif
                         </div>
                     </div>
                     <span

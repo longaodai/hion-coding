@@ -5,38 +5,56 @@ namespace App\Repositories\Posts;
 interface PostRepositoryInterface
 {
     /**
-     * @param null $data
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function all($data = null);
+    public function all($params);
+
+    /**
+     * @param object $params
+     *
+     * @return mixed
+     */
+    public function getList($params);
 
     /**
      * @param null $data
      */
-    public function getList($data = null);
+    public function create($params);
 
     /**
-     * @param null $data
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function store($data = null);
+    public function update($params);
 
     /**
-     * @param null $data
-     * @param null $options
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function update($data = null, $options = null);
+    public function find($params);
 
     /**
-     * @param null $data
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function show($data = null);
+    public function first($params);
 
     /**
-     * @param null $data
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function getFirstBy($data = null);
+    public function insert($params);
 
     /**
-     * @param null $data
+     * @param object $params
+     *
+     * @return mixed
      */
-    public function delete($data = null);
+    public function destroy($params);
 }
