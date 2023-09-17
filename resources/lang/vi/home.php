@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'lbl_desciption' => 'Chia sẻ và học tập kiến thức.',
-    'lbl_desciption_sub' => 'OHION Code là một blog cá nhân chuyên viết về lập trình và những thứ linh tinh nhất trên đời.',
+    'lbl_desciption' => 'Share and learn knowledge.',
+    'lbl_desciption_sub' => 'OHION Code is a personal blog specializing in programming and the most miscellaneous things in life.',
 ];

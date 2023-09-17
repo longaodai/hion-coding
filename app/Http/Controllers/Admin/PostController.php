@@ -74,6 +74,7 @@ class PostController extends Controller
                 'category_id' => $request->get('category_id'),
                 'author_id' => 1,
                 'post_image' => $path,
+                'post_sub_description' => trim($request->get('sub_description')),
                 'post_description' => $request->get('description'),
                 'post_active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
             ];
@@ -123,6 +124,7 @@ class PostController extends Controller
                 'post_slug' => $request->get('slug'),
                 'category_id' => $request->get('category_id'),
                 'author_id' => $request->get('author_id'),
+                'post_sub_description' => trim($request->get('sub_description')),
                 'post_description' => $request->get('description'),
                 'post_active' => !empty($request->get('active')) ? ACTIVE_SHOW : NOT_ACTIVE_SHOW,
             ];

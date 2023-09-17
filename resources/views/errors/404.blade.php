@@ -7,7 +7,8 @@
                 <a href="{{ __('common.link_facebook') }}" target="_blank">
                     <div class="article-card">
                         <div class="article-img">
-                            <img src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}">
+                            <img src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}"
+                                loading="lazy">
                         </div>
 
                         <div class="article-meta text-left">

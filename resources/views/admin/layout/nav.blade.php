@@ -61,11 +61,11 @@
         <a href="{{ route('home') }}" target="_blank" class="logo text-center">
             <span class="logo-lg">
                 <img src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}" height="80"
-                    style="margin-top: 10px">
+                    style="margin-top: 10px" loading="lazy">
             </span>
             <span class="logo-sm">
-                <img src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}"
-                    height="28">
+                <img src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}" height="28"
+                    loading="lazy">
             </span>
         </a>
     </div>

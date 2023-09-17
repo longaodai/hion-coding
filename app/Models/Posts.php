@@ -10,7 +10,7 @@ class Posts extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['post_title', 'post_slug', 'post_description', 'post_active', 'post_image', 'author_id', 'category_id'];
+    protected $fillable = ['post_title', 'post_slug', 'post_description', 'post_active', 'post_image', 'author_id', 'category_id', 'post_sub_description'];
 
     protected $table = 'posts';
 
@@ -31,7 +31,7 @@ class Posts extends Model
         return $this->hasOne(Categories::class, 'id', 'category_id');
     }
 
-     /**
+    /**
      * Relationship with user
      *
      * @return void

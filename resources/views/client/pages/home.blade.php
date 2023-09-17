@@ -6,7 +6,8 @@
             <div class="col-lg-6 hero-img-container">
                 <a href="{{ route('home') }}">
                     <div class="hero-img">
-                        <img src="{{ asset('common/images/banner.jpeg') }}" alt="{{ __('common.lbl_default_alt') }}">
+                        <img src="{{ asset('common/images/banner.jpeg') }}" alt="{{ __('common.lbl_default_alt') }}"
+                            loading="lazy">
                     </div>
                 </a>
             </div>
@@ -25,7 +26,7 @@
                     <p>{{ __('home.lbl_desciption_sub') }}</p>
                     <div class="author">
                         <div class="author-img"><img src="{{ asset('common/images/author.jpg') }}"
-                                alt="{{ __('common.lbl_default_alt') }}"></div>
+                                alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></div>
                         <div class="author-meta">
                             <span class="author-name">{{ __('common.lbl_name_author') }}</span>
                             <span class="author-tag">{{ __('common.lbl_name_bloger') }}</span>
@@ -45,7 +46,8 @@
                             <div class="article-card">
                                 <div class="article-img">
                                     <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
-                                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}">
+                                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}"
+                                        loading="lazy">
                                 </div>
                                 <div class="article-meta text-left">
                                     <p style="margin: 0;">
@@ -53,8 +55,8 @@
                                     </p>
                                     <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
                                     <div class="tags">
-                                        <a class="tag">
-                                            {{ !empty($post->category->name) ? $post->category->name : '' }}</a>
+                                        <p class="tag">
+                                            {{ !empty($post->category->name) ? $post->category->name : '' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +68,8 @@
     </div>
 
     <div class="container text-center pb-3 mb-5">
-        <a href="{{ route('posts') }}" class="btn btn-lg btn-light">{{ __('common.view_more') }}</a>
+        <a href="{{ route('posts') }}"
+            class="btn vcl-buttons vcl-btn-hover vcl-color-primary">{{ __('common.view_more') }}</a>
     </div>
 @endsection
 

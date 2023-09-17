@@ -14,15 +14,15 @@
     border-radius: 3px 0 0 3px;
     color: #999;
     display: inline-block;
-    height: 26px;
-    line-height: 26px;
+    height: 26px !important;
+    line-height: 26px !important;
     padding: 0 20px 0 23px;
     position: relative;
     margin: 0 10px 10px 0;
     text-decoration: none;
     -webkit-transition: color 0.2s;
     cursor: pointer;
-    font: 18px/1.5;
+    font-size: 15px !important;
 }
 
 .tag::before {
@@ -60,6 +60,50 @@
 .article-card:hover:not(.tags) {
     transform: scale(1);
     transform: translateY(-10px);
+}
+
+
+/* FOR CSS BUTTON CUSTOM */
+.vcl-buttons {
+    margin: 10%;
+    text-align: center;
+}
+
+.vcl-btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    line-height: 44px;
+}
+
+.vcl-btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    color: #fff;
+}
+
+.vcl-btn-hover:focus {
+    outline: none;
+}
+
+.vcl-btn-hover.vcl-color-primary {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 }
 
 div[style*="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"] {

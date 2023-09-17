@@ -23,7 +23,7 @@
                                 <td>{{ !empty($post->category) ? $post->category->name : '' }}</td>
                                 <td><img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
                                         alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}"
-                                        style="width: 50px"></td>
+                                        style="width: 50px" loading="lazy"></td>
                                 <td style="padding-left: 35px;">
                                     <div class="checkbox checkbox-success checkbox-circle mb-2" style="line-height: 0px;">
                                         <input type="checkbox" onclick="return false;" style="width: 0; height: 0"

@@ -7,7 +7,8 @@
             <div class="col-lg-6 hero-img-container">
                 <div class="hero-img">
                     <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
-                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}">
+                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}"
+                        loading="lazy">
                 </div>
             </div>
 
@@ -22,7 +23,7 @@
                 <div class="hero-meta">
                     <div class="author">
                         <div class="author-img"><img src="{{ asset('client/img/author-img.png') }}"
-                                alt="{{ __('common.lbl_default_alt') }}"></div>
+                                alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></div>
                         <div class="author-meta">
                             <span class="author-name">{{ !empty($post->user->name) ? $post->user->name : '' }}</span>
                             <span class="author-tag">{{ !empty($post->user->email) ? $post->user->email : '' }}</span>
@@ -32,8 +33,8 @@
                         class="date mt-2">{{ !empty($post->updated_at) ? formatDate($post->updated_at, 'jS F Y') : '' }}</span>
 
                     <div class="tags mt-2">
-                        <a class="tag">{{ !empty($post->category->name) ? $post->category->name : '' }}
-                        </a>
+                        <p class="tag">{{ !empty($post->category->name) ? $post->category->name : '' }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -70,7 +71,8 @@
                             <div class="article-card">
                                 <div class="article-img">
                                     <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
-                                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}">
+                                        alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}"
+                                        loading="lazy">
                                 </div>
                                 <div class="article-meta text-left">
                                     <p style="margin: 0;">
@@ -78,8 +80,8 @@
                                     </p>
                                     <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
                                     <div class="tags">
-                                        <a class="tag">
-                                            {{ !empty($post->category->name) ? $post->category->name : '' }}</a>
+                                        <p class="tag">
+                                            {{ !empty($post->category->name) ? $post->category->name : '' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -87,8 +89,8 @@
                     </div>
                 @endforeach
             @else
-                <div class="col-xl-6 col-lg-12 text-center">
-                    <center><span>{{ __('post.lbl_not_data_available') }}</span></center>
+                <div class="col-xl-12 col-lg-12 text-center">
+                    <span>{{ __('post.lbl_not_data_available') }}</span>
                 </div>
             @endif
         </div>

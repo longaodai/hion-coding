@@ -3,7 +3,7 @@
         <div class="row pb-1" style="align-items: center">
             <!-- Footer logo -->
             <div class="col-md-6  pb-2"><img class="logo-image" src="{{ asset('common/images/logo.png') }}"
-                    alt="{{ __('common.lbl_default_alt') }}"></div>
+                    alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></div>
             <!-- footer social links -->
             <div class="col-md-6">
                 <ul class="nav justify-content-end">
