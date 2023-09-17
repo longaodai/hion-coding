@@ -60,7 +60,7 @@
                                     <div class="input-group mt-3">
                                         <img src="{{ asset(getPathImage(!empty($data->post_image) ? $data->post_image : '')) }}"
                                             alt="{{ !empty($data->post_title) ? $data->post_title : __('common.lbl_default_alt') }}"
-                                            style="width: 100px">
+                                            style="width: 100px" loading="lazy">
                                     </div>
                                     @error('image')
                                         <span class="text-danger">{{ $message }}</span>
@@ -93,6 +93,17 @@
                                             @enderror
                                         </label>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-3">
+                                    <label for="lbl_sub_description">{{ __('common.lbl_sub_description') }}</label>
+                                    <textarea name="sub_description" cols="30" rows="5" class="form-control" id="lbl_sub_description">
+                                        {{ old('sub_description', $data->post_sub_description) }}
+                                    </textarea>
+                                    @error('sub_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-12">

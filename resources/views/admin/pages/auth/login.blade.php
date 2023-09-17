@@ -41,7 +41,8 @@
                             <div class="text-center w-75 m-auto">
                                 <a href="index.html">
                                     <span><img src="{{ asset('common/images/logo.png') }}"
-                                            alt="{{ __('common.lbl_default_alt') }}" height="100"></span>
+                                            alt="{{ __('common.lbl_default_alt') }}" height="100"
+                                            loading="lazy"></span>
                                 </a>
                             </div>
                             @include('admin.notifications.toast')

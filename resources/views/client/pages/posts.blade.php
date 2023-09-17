@@ -10,7 +10,7 @@
                             <div class="article-card">
                                 <div class="article-img">
                                     <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
-                                        alt="{{ !empty($post->post_title) ? $post->post_title : '' }}">
+                                        alt="{{ !empty($post->post_title) ? $post->post_title : '' }}" loading="lazy">
                                 </div>
                                 <div class="article-meta text-left">
                                     <p style="margin: 0;">
@@ -18,8 +18,8 @@
                                     </p>
                                     <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
                                     {{-- <div class="tags"> --}}
-                                    <a class="tag">
-                                        {{ !empty($post->category->name) ? $post->category->name : '' }}</a>
+                                    <p class="tag">
+                                        {{ !empty($post->category->name) ? $post->category->name : '' }}</p>
                                     {{-- </div> --}}
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                     </div>
                 @endforeach
             @else
-                <div class="col-xl-6 col-lg-12 text-center">
+                <div class="col-xl-12 col-lg-12 text-center">
                     <i>{{ __('post.lbl_not_data_available') }}</i>
                 </div>
             @endif

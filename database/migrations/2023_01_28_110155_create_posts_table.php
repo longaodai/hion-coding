@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->integer('id')->autoIncrement();
             $table->string('post_title');
             $table->string('post_slug')->unique();
+            $table->text('post_sub_description')->nullable();
             $table->text('post_description')->nullable();
             $table->string('post_image')->nullable();
             $table->integer('author_id')->nullable();
