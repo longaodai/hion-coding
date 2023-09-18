@@ -16,3 +16,4 @@ yarn-error.log
 /public/libs-image
 /public/sitemaps.xml
 /public/sitemaps/*
+/docker/mysql/*

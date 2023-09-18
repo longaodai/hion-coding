@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        container_name: ohion_app
+        privileged: true
+        volumes:
+            - .:/var/www/app
+            - ./docker/setup.sh:/usr/bin/setup
+        depends_on:
+            - mysql
+        ports:
+            - "8080:80"
+
+    mysql:
+        image: mysql:8.0.1
+        container_name: ohion_mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: 'password'
+            MYSQL_DATABASE: 'ohion_my_blog'
+            MYSQL_USER: 'ohion'
+            MYSQL_PASSWORD: 'password'
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./docker/mysql:/var/lib/mysql
+
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: ohion_phpmyadmin
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+        ports:
+            - "8888:80"
+        depends_on:
+            - mysql
+
+volumes:
+    mysql_data:
