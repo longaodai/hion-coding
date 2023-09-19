@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    privileged: true
+    volumes:
+      - .:/var/www
+    ports:
+      - "9000:9000"
+    networks:
+      - app
+    depends_on:
+      - mysql
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
+    networks:
+      - app
+
+  mysql:
+    image: mysql:8.0.1
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'ohion_my_blog'
+      MYSQL_USER: 'ohion'
+      MYSQL_PASSWORD: 'password'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    networks:
+      - app
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8888:80"
+    depends_on:
+      - mysql
+    networks:
+      - app
+
+networks:
+  app:
+
+volumes:
+  mysql_data:
