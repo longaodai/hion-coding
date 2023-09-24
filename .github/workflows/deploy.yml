@@ -16,6 +16,6 @@ jobs:
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ftp.hioncoding.com
+          server: 103.106.105.141
           username: deploy@hioncoding.com
           password: Long28042001
