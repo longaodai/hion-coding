@@ -18,4 +18,4 @@ jobs:
         with:
           server: ftp.hioncoding.com
           username: deploy@hioncoding.com
-          username: Long28042001
+          password: Long28042001
