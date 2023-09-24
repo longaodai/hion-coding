@@ -13,9 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2.3.2
 
+      - name: Identify changed files
+        id: changed_files
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
+          cat changed_files.txt
+        shell: bash
+
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: 103.106.105.141
           username: deploy@hioncoding.com
           password: Long28042001
+          include: changed_files.txt
