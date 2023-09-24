@@ -10,26 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Identify changed files
-      id: changed_files
-      run: |
-        git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
-        cat changed_files.txt
-      shell: bash
+      - name: Identify changed files
+        id: changed_files
+        run: |
+          git diff --name-only <commit-hash-previous> <commit-hash-current> > changed_files.txt
+          cat changed_files.txt
+        shell: bash
 
-    - name: Deploy changed files to FTP
-      run: |
-        FTP_SERVER=103.106.105.141
-        FTP_USER=deploy@hioncoding.com
-        FTP_PASS=Long28042001
-        REMOTE_DIR="/"
-        
-        while read -r file; do
-          curl --ftp-create-dirs -T "$file" -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_SERVER/$REMOTE_DIR/$file"
-        done < changed_files.txt
-      env:
-        FTP_USER: deploy@hioncoding.com
-        FTP_PASS: Long28042001
+      - name: Deploy changed files to FTP
+        run: |
+          FTP_SERVER=103.106.105.141
+          FTP_USER=deploy@hioncoding.com
+          FTP_PASS=Long28042001
+          REMOTE_DIR="/"
+
+          while read -r file; do
+            curl --ftp-create-dirs -T "$file" -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_SERVER/$REMOTE_DIR/$file"
+          done < changed_files.txt
+        env:
+          FTP_USER: deploy@hioncoding.com
+          FTP_PASS: Long28042001
