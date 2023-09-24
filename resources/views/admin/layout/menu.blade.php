@@ -52,12 +52,6 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="https://databases.000webhost.com/" target="_blank">
-                        <i class="la la-database"></i>
-                        <span> {{ __('common.lbl_database') }} </span>
-                    </a>
-                </li>
             </ul>
 
         </div>

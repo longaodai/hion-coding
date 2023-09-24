@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('client/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('common/style/style.css') }}">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KYL5SNQ364"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LM0F3TLTQ1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -26,7 +26,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-KYL5SNQ364');
+        gtag('config', 'G-LM0F3TLTQ1');
     </script>
 
     @yield('style-extend')
