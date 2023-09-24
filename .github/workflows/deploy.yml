@@ -1,0 +1,21 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to FTP
+        uses: wzyy2/ftp-deploy-action@v2
+        with:
+          ftp-server: ftp.hioncoding.com
+          ftp-username: deploy@hioncoding.com
+          ftp-password: Long28042001
