@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $postService = app(PostServiceInterface::class);
         $listPost = $postService->all(collect([
             'limit' => 10,

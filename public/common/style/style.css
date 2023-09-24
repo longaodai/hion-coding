@@ -123,3 +123,32 @@
 .navbar-toggler {
     outline: none !important;
 }
+
+.article-meta h3 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #000;
+    font-family: 'Playfair display';
+}
+
+.hero-title-post h1 {
+    font-size: 72px;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 30px;
+    color: #000;
+    text-decoration: none;
+    transition: 500ms;
+}
+
+.hero-title-post h2 {
+    font-size: 20px;
+    line-height: 30px;
+    color: #404040;
+}
+
+.hero-meta h2 {
+    font-size: 20px;
+    line-height: 30px;
+    color: #404040;
+}

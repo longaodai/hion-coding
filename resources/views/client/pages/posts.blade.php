@@ -1,6 +1,10 @@
 @extends('client.layout.master')
 
 @section('content')
+    <div class="hero-title-post mt-3 mb-1 text-center">
+        <h1>{{ __('common.lbl_default_alt') }}</h1>
+        <h2>{{ __('home.lbl_desciption') }}</h2>
+    </div>
     <div class="container mt-2 mb-2 pt-5 pb-5" id="article-grid">
         <div class="row justify-content-center">
             @if ($dataPost->count() > 0)
@@ -16,7 +20,7 @@
                                     <p style="margin: 0;">
                                         <i>{{ !empty($post->updated_at) ? formatDate($post->updated_at, 'jS F Y') : '' }}</i>
                                     </p>
-                                    <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
+                                    <h3>{{ !empty($post->post_title) ? $post->post_title : '' }}</h3>
                                     {{-- <div class="tags"> --}}
                                     <p class="tag">
                                         {{ !empty($post->category->name) ? $post->category->name : '' }}</p>

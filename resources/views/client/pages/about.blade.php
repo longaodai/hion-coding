@@ -12,6 +12,7 @@
                         </div>
 
                         <div class="article-meta text-left">
+                            <h1>{{ __('common.lbl_about_nav') }}</h1>
                             <h2>{{ __('common.msg_page_update', ['page' => __('common.lbl_about_nav')]) }}</h2>
                             <p>{!! __('common.msg_detail_contact_admin') !!}</p>
                         </div>

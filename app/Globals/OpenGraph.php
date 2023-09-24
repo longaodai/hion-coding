@@ -10,8 +10,8 @@ class OpenGraph
      * @var array
      */
     protected static $values = [
-        'title' => 'OHION - Blogs share everything',
-        'description' => 'Ohion blogs share everything',
+        'title' => 'Hion Coding - Blogs share everything',
+        'description' => 'Hion Coding blogs share everything',
         'image' => './common/images/logo.png',
     ];
 

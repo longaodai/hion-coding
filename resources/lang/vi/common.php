@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'lbl_name_site' => 'OHION',
+    'lbl_name_site' => 'Hion Coding',
     'lbl_name_author' => 'Vo Chi Long',
-    'lbl_name_bloger' => 'OHION Blogger',
+    'lbl_name_bloger' => 'Hion Coding Blogger',
     'lbl_home_nav' => 'HOME',
     'lbl_post_nav' => 'POSTS',
     'lbl_funny_nav' => 'FUNNY',
@@ -14,7 +14,7 @@ return [
     'link_youtube' => 'https://www.youtube.com/channel/UCi6tInglFB2BIWV4u6aBfDw',
     'view_more' => 'View More',
     'msg_page_update' => 'Page :page is being updated!',
-    'msg_detail_contact_admin' => 'For further details, please contact us on Facebook: <i>VO CHI LONG - OHION Blogger</i>',
+    'msg_detail_contact_admin' => 'For further details, please contact us on Facebook: <i>VO CHI LONG - Hion Coding Blogger</i>',
     'lbl_list' => 'List',
     'lbl_create' => 'Create',
     'lbl_edit' => 'Edit',
@@ -40,5 +40,5 @@ return [
     'lbl_database' => 'Database',
     'msg_add_failure' => 'Add failure',
     'msg_update_failure' => 'Update failure',
-    'lbl_default_alt' => 'OHION - Blogs share everything',
+    'lbl_default_alt' => 'Hion Coding - Blogs share everything',
 ];

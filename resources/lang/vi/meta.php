@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'lbl_title' => 'OHION - Blogs share everything',
-    'lbl_description' => 'Blogs share everything',
+    'lbl_title' => 'Hion Coding - Blogs share everything',
+    'lbl_description' => 'Hion Coding Blogs share everything',
 ];

@@ -23,15 +23,15 @@
 
             <div class="col-lg-6">
                 <div class="hero-meta">
-                    <p>{{ __('home.lbl_desciption_sub') }}</p>
-                    <div class="author">
-                        <div class="author-img"><img src="{{ asset('common/images/author.jpg') }}"
-                                alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></div>
-                        <div class="author-meta">
-                            <span class="author-name">{{ __('common.lbl_name_author') }}</span>
-                            <span class="author-tag">{{ __('common.lbl_name_bloger') }}</span>
+                    <h2>{{ __('home.lbl_desciption_sub') }}</>
+                        <div class="author">
+                            <div class="author-img"><img src="{{ asset('common/images/author.jpg') }}"
+                                    alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></div>
+                            <div class="author-meta">
+                                <span class="author-name">{{ __('common.lbl_name_author') }}</span>
+                                <span class="author-tag">{{ __('common.lbl_name_bloger') }}</span>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                                     <p style="margin: 0;">
                                         <i>{{ !empty($post->updated_at) ? formatDate($post->updated_at, 'jS F Y') : '' }}</i>
                                     </p>
-                                    <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
+                                    <h3>{{ !empty($post->post_title) ? $post->post_title : '' }}</h3>
                                     <div class="tags">
                                         <p class="tag">
                                             {{ !empty($post->category->name) ? $post->category->name : '' }}</p>
