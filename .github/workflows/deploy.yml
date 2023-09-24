@@ -21,9 +21,9 @@ jobs:
         shell: bash
 
       - name: Deploy to FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        uses: ncwong1020/sftp-sync-action@v3
         with:
-          server: 103.106.105.141
+          host: 103.106.105.141
           username: deploy@hioncoding.com
           password: Long28042001
           include: changed_files.txt
