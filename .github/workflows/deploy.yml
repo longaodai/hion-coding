@@ -1,4 +1,4 @@
-name: Deploy Changed Files to FTP
+name: Deploy to FTP
 
 on:
   push:
@@ -11,25 +11,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.2
 
-      - name: Identify changed files
-        id: changed_files
-        run: |
-          git diff --name-only <commit-hash-previous> <commit-hash-current> > changed_files.txt
-          cat changed_files.txt
-        shell: bash
-
-      - name: Deploy changed files to FTP
-        run: |
-          FTP_SERVER=103.106.105.141
-          FTP_USER=deploy@hioncoding.com
-          FTP_PASS=Long28042001
-          REMOTE_DIR="/"
-
-          while read -r file; do
-            curl --ftp-create-dirs -T "$file" -u "$FTP_USER:$FTP_PASS" "ftp://$FTP_SERVER/$REMOTE_DIR/$file"
-          done < changed_files.txt
-        env:
-          FTP_USER: deploy@hioncoding.com
-          FTP_PASS: Long28042001
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: 103.106.105.141
+          username: deploy@hioncoding.com
+          password: Long28042001
