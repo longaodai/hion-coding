@@ -2,7 +2,7 @@
 
 return [
     'lbl_name_site' => 'Hion Coding',
-    'lbl_name_author' => 'Long VC',
+    'lbl_name_author' => 'Vo Chi Long',
     'lbl_name_bloger' => 'Hion Coding Blogger',
     'lbl_home_nav' => 'HOME',
     'lbl_post_nav' => 'POSTS',
