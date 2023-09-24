@@ -6,7 +6,7 @@ Website: https://hioncoding.com/
 
 Contact: vochilong.work@gmail.com
 
-<img align="right" alt="Coding" width="200" src="https://github.com/longaodai/OhionMyBlog/blob/main/public/common/images/ohion-sharing-everything.jpg?raw=true">
+<img align="right" alt="Coding" width="320" height="200" src="https://github.com/longaodai/OhionMyBlog/blob/main/public/common/images/ohion-sharing-everything.jpg?raw=true">
 
 <br />
 
