@@ -1,5 +1,5 @@
     <title>
-        {{ !empty(App\Facades\OpenGraph::get('title')) ? App\Facades\OpenGraph::get('title') : 'OHION - Blogs share everything' }}
+        {{ !empty(App\Facades\OpenGraph::get('title')) ? App\Facades\OpenGraph::get('title') : 'Hion Coding - Blogs share everything' }}
     </title>
     <meta charset="UTF-8" />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
