@@ -47,7 +47,7 @@
                                 <div class="article-img">
                                     <img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"
                                         alt="{{ !empty($post->post_title) ? $post->post_title : __('common.lbl_default_alt') }}"
-                                        loading="lazy">
+                                        loading="lazy" style="height: 160px;">
                                 </div>
                                 <div class="article-meta text-left">
                                     <p style="margin: 0;">
