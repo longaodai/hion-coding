@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="google-site-verification" content="CukqLbnviAeft9o1JyX3SqsSQPU1LKEx_11H1H2oTQU" />
     <link rel="icon" type="image/png" href="{{ asset('common/images/logo.png') }}" />
     @include('client.layout.meta')
     <!-- Bootstrap CSS -->
