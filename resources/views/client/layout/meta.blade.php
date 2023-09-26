@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ohion, learn code, learn IT, learn everything, Blogs share everything">
     <link rel="canonical" href="{{ Request::url() }}" />
     <!-- SEO FACABOOK -->
-    <meta property="og:site_name" content="Ohion Blogs" />
+    <meta property="og:site_name" content="Hion Coding Blogs" />
     <meta property="og:url" content="{{ Request::url() }}" />
     <meta property="og:title" content="{{ App\Facades\OpenGraph::get('title') }}" />
     <meta property="og:description" content="{{ App\Facades\OpenGraph::get('description') }}" />
