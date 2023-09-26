@@ -132,9 +132,29 @@
     </div>
 @endsection
 
+@section('style')
+    <style>
+        .cke_dialog_ui_vbox_child > .cke_dialog_ui_file {
+            height: 100px !important;
+        }
+
+        .cke_dialog_ui_vbox_child .cke_dialog_ui_file > .cke_dialog_ui_labeled_content {
+            height: 100px !important;
+        }
+
+        .cke_dialog_ui_vbox_child .cke_dialog_ui_input_file {
+            height: 100px !important;
+        }
+    </style>
+@endsection
+
 @section('script')
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace('lbl_description');
+        CKEDITOR.replace('lbl_description', {
+            extraPlugins: 'codesnippet',
+            filebrowserUploadUrl: '{{ route('admin.post.upload_image', ['_token' => csrf_token() ]) }}',
+            filebrowserUploadMethod: 'form',
+        });
     </script>
 @endsection

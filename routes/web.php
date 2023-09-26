@@ -53,6 +53,7 @@ Route::prefix('ohion')->middleware('auth_admin')->name('admin.')->group(function
         Route::post('/store', [AdminPostController::class, 'store'])->name('store');
         Route::get('/edit/{id}', [AdminPostController::class, 'edit'])->name('edit');
         Route::patch('/update/{id}', [AdminPostController::class, 'update'])->name('update');
+        Route::post('/upload-image', [AdminPostController::class, 'uploadImage'])->name('upload_image');
     });
 
     Route::get('/optimize-sitemap', [SitemapController::class, 'index'])->name('optimize_sitemap');

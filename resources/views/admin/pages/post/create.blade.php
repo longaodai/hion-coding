@@ -88,7 +88,7 @@
                                 <div class="form-group mb-3">
                                     <label for="lbl_sub_description">{{ __('common.lbl_sub_description') }}</label>
                                     <textarea name="sub_description" cols="30" rows="5" class="form-control" id="lbl_sub_description">
-                                        {{ old('sub_description', '') }}
+                                        {{ old('sub_description') }}
                                     </textarea>
                                     @error('sub_description')
                                         <span class="text-danger">{{ $message }}</span>
@@ -123,11 +123,29 @@
     </div>
 @endsection
 
+@section('style')
+    <style>
+        .cke_dialog_ui_vbox_child > .cke_dialog_ui_file {
+            height: 100px !important;
+        }
+
+        .cke_dialog_ui_vbox_child .cke_dialog_ui_file > .cke_dialog_ui_labeled_content {
+            height: 100px !important;
+        }
+
+        .cke_dialog_ui_vbox_child .cke_dialog_ui_input_file {
+            height: 100px !important;
+        }
+    </style>
+@endsection
+
 @section('script')
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace('lbl_description', {
-            extraPlugins: 'codesnippet'
+            extraPlugins: 'codesnippet',
+            filebrowserUploadUrl: '{{ route('admin.post.upload_image', ['_token' => csrf_token() ]) }}',
+            filebrowserUploadMethod: 'form',
         });
     </script>
 @endsection

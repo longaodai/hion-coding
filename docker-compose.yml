@@ -19,10 +19,7 @@ services:
         image: mysql:8.0.1
         container_name: ohion_mysql
         environment:
-            MYSQL_ROOT_PASSWORD: 'password'
-            MYSQL_DATABASE: 'ohion_my_blog'
-            MYSQL_USER: 'ohion'
-            MYSQL_PASSWORD: 'password'
+            - MYSQL_ROOT_PASSWORD=password
         ports:
             - "3306:3306"
         volumes:

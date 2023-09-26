@@ -33,7 +33,7 @@ class Posts extends Model
      * Relationship with category
      *
      * @return void
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function category()
@@ -45,7 +45,7 @@ class Posts extends Model
      * Relationship with user
      *
      * @return void
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function user()

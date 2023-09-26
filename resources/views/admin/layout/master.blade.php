@@ -83,11 +83,11 @@
     <!-- App js -->
     <script src="{{ asset('admin_libs_asset\js\app.min.js') }}"></script>
     @yield('script')
-    <script type="module">
-        import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
-    </script>
-    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
-        data-turbolinks-eval="false" data-turbo-eval="false"></script>
+{{--    <script type="module">--}}
+{{--        import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';--}}
+{{--    </script>--}}
+{{--    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"--}}
+{{--        data-turbolinks-eval="false" data-turbo-eval="false"></script>--}}
 </body>
 
 </html>

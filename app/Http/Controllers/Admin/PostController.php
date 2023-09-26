@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Utils\ImageTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
@@ -18,7 +19,7 @@ class PostController extends Controller
 
     /**
      * @param PostServiceInterface $service
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function __construct(PostServiceInterface $service)
@@ -30,7 +31,7 @@ class PostController extends Controller
      * Show list
      *
      * @return void
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function index()
@@ -44,7 +45,7 @@ class PostController extends Controller
      * Show form for creating a new.
      *
      * @return void
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function create()
@@ -59,9 +60,9 @@ class PostController extends Controller
      * Store category
      *
      * @param StoreRequest $request
-     * 
+     *
      * @return mixed
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function store(StoreRequest $request)
@@ -91,9 +92,9 @@ class PostController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * 
+     *
      * @return void
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function edit($id)
@@ -114,9 +115,9 @@ class PostController extends Controller
      *
      * @param UpdateRequest $request
      * @param [type] $id
-     * 
+     *
      * @return mixed
-     * 
+     *
      * @author longvc <vochilong.work@gmail.com>
      */
     public function update(UpdateRequest $request, $id)
@@ -125,7 +126,7 @@ class PostController extends Controller
             $path = !empty($request->file('image')) ? $this->updateImage($request->file('image'), $request->get('old_image'), 'post') : '';
             $data = [
                 'post_title' => $request->get('name'),
-                'post_slug' => $request->get('slug'),
+                'post_slug' => Str::slug($request->get('slug')),
                 'category_id' => $request->get('category_id'),
                 'author_id' => $request->get('author_id'),
                 'post_sub_description' => trim($request->get('sub_description')),
@@ -159,5 +160,28 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Upload file post
+     *
+     * @param Request $request
+     *
+     * @return void
+     *
+     * @author <vochilong>
+     */
+    public function uploadImage(Request $request) {
+        try {
+            $path = !empty($request->file('upload')) ? $this->storeImage($request->file('upload'), 'post') : '';
+
+            if (!empty($path)) {
+                echo asset(getPathImage($path));
+            } else {
+                echo 'Failed to move file.';
+            }
+        } catch (\Exception $exception) {
+            echo 'File upload failed.';
+        }
     }
 }
