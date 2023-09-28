@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="container mt-2 mb-2 pt-5 pb-5" id="article-grid">
+    <div class="container mt-2 mb-2 pt-0 pb-3" id="article-grid">
         <div class="row justify-content-center">
             @if ($listPost->count() > 0)
                 @foreach ($listPost as $post)

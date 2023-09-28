@@ -33,9 +33,9 @@ WORKDIR /var/www/app
 # config port 80
 ADD docker/httpd/vhost.conf /etc/httpd/conf.d/welcome.conf
 
-#CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
 
 RUN systemctl enable httpd \
  && systemctl enable crond
 
-CMD ["/sbin/init"]
+#CMD ["/sbin/init"]
