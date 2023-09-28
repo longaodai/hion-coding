@@ -106,6 +106,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
     <link rel="stylesheet" href="{{ asset('common/style/style.css') }}">
     <style>
+        #content img {
+            max-width: 100% !important;
+            max-height: 550px !important;
+        }
         .container-post {
             margin-top: 0 !important;
         }
