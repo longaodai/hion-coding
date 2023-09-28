@@ -339,12 +339,16 @@ footer a {
         font-size: 19px;
         line-height: 28px;
     }
+
+    .article-card h2 {
+        font-size: 23px !important;
+    }
 }
 
 @media (max-width: 585px) {
     .hero-title h1 {
         font-size: 30px;
-        line-height: 30px;
+        line-height: 36px;
     }
 
     .hero-meta h2 {
@@ -358,6 +362,11 @@ footer a {
     max-width: 100% !important;
     max-height: 550px !important;
     height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.article-img img {
     object-fit: cover;
     object-position: center center;
 }
