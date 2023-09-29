@@ -68,10 +68,10 @@
     </div>
 
     <div class="container mt-3 mb-5" id="article-grid">
-        <div class="row">
+        <div class="row justify-content-center">
             @if ($postRelation->count() > 0)
                 @foreach ($postRelation as $post)
-                    <div class="col-lg-12 text-center">
+                    <div class="col-xl-6 col-lg-12 text-center">
                         <a href="{{ route('post-detail', ['slug' => $post->post_slug]) }}">
                             <div class="article-card">
                                 <div class="article-img">
