@@ -1,13 +1,13 @@
 <nav id="navbar-main" class="navbar navbar-expand-md navbar-light">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggle" id="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{{ route('home') }}"><img class="logo-image"
                 src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></a>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarToggleSP">
 
             <ul class="navbar-nav">
                 <li class="nav-item">
