@@ -15,3 +15,5 @@
     <meta property="og:image" content="{{ App\Facades\OpenGraph::get('image') }}" />
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="800">
+    <link rel="alternate" type="application/rss+xml" title="Hion Coding - Blogs share everything"
+        href="{{ route('feed') }}">
