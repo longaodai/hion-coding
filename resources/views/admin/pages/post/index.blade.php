@@ -7,6 +7,7 @@
                 <thead class="thead-light">
                     <tr>
                         <th>{{ __('common.lbl_id') }}</th>
+                        <th>{{ __('post.lbl_view') }}</th>
                         <th>{{ __('post.lbl_name') }}</th>
                         <th>{{ __('category.lbl_name') }}</th>
                         <th>{{ __('common.lbl_image') }}</th>
@@ -19,6 +20,7 @@
                         @foreach ($data as $post)
                             <tr>
                                 <th>{{ !empty($post->id) ? $post->id : '' }}</th>
+                                <td>{{ !empty($post->post_views) ? $post->post_views : 0 }}</td>
                                 <td>{{ !empty($post->post_title) ? $post->post_title : '' }}</td>
                                 <td>{{ !empty($post->category) ? $post->category->name : '' }}</td>
                                 <td><img src="{{ asset(getPathImage(!empty($post->post_image) ? $post->post_image : '')) }}"

@@ -9,4 +9,5 @@ return [
     'lbl_edit' => 'Edit post',
     'lbl_not_data_available' => 'The list of articles is being updated!!!',
     'lbl_slug' => 'Post slug',
+    'lbl_view' => 'View',
 ];
