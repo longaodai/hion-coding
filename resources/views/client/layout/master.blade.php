@@ -50,6 +50,7 @@
 
     </div>
     <!-- END -->
+    @include('client.modules.schema.organization')
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

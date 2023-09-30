@@ -110,6 +110,7 @@
             max-width: 100% !important;
             max-height: 550px !important;
         }
+
         .container-post {
             margin-top: 0 !important;
         }
@@ -117,6 +118,7 @@
 @endsection
 
 @section('script-extend')
+    @include('client.modules.schema.post')
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
