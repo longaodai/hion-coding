@@ -31,7 +31,7 @@
         "jobTitle": "Founder",
         "worksFor": "Hion Coding Blog",
         "sameAs": [
-          "https://www.facebook.com/vochilong.work/",
+          "https://www.facebook.com/vochilong.work/"
         ]
       }],
       "openingHoursSpecification": [{
