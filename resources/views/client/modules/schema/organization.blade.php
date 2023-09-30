@@ -23,7 +23,7 @@
         "addressCountry": "Vietnam"
       },
       "sameAs": [
-        "https://www.facebook.com/vochilong.work/",
+        "https://www.facebook.com/vochilong.work/"
       ],
       "founders": [{
         "@type": "Person",
