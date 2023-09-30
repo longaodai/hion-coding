@@ -3,7 +3,7 @@
 ?>
 <rss version="2.0">
     <channel>
-        <title><![CDATA[ hioncoding.com ]]></title>
+        <title><![CDATA[ Hion Coding ]]></title>
         <link><![CDATA[ https://hioncoding.com/feed ]]></link>
         <description><![CDATA[ Hion Coding Blogs share everything ]]></description>
         <language>en</language>
