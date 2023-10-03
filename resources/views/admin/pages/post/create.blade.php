@@ -87,9 +87,7 @@
                             <div class="col-md-12">
                                 <div class="form-group mb-3">
                                     <label for="lbl_sub_description">{{ __('common.lbl_sub_description') }}</label>
-                                    <textarea name="sub_description" cols="30" rows="5" class="form-control" id="lbl_sub_description">
-                                        {{ old('sub_description') }}
-                                    </textarea>
+                                    <textarea name="sub_description" cols="30" rows="5" class="form-control" id="lbl_sub_description">{{ old('sub_description') }}</textarea>
                                     @error('sub_description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
