@@ -45,7 +45,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     public function all($params)
     {
         $this->resetModel();
-        $this->method('orderBy', 'updated_at', 'DESC');
+        $this->method('orderBy', 'id', 'DESC');
 
         return parent::all($params);
     }

@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         $postService = app(PostServiceInterface::class);
         $listPost = $postService->all(collect([
-            'limit' => 10,
+            'limit' => 20,
             'is_active' => true,
         ]));
 
