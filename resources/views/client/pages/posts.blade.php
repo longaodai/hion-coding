@@ -4,6 +4,7 @@
     <div class="hero-meta hero-title-post mt-5 mb-1 text-center">
         <h1>{{ __('common.lbl_default_alt') }}</h1>
         <h2>{{ __('home.lbl_desciption') }}</h2>
+        <br>
     </div>
     <div class="container mt-2 mb-2 pb-5" id="article-grid">
         <div class="row justify-content-center">

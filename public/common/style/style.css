@@ -106,6 +106,21 @@
     box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 }
 
+.vcl-bg-primary {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+    color: #fff !important;
+    background-size: 300% 100%;
+}
+
+.vcl-bg-primary:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
 .pagination {
     justify-content: center;
 }

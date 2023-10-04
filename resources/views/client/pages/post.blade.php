@@ -50,9 +50,14 @@
         <div class="row justify-content-center">
             <!-- Share buttons -->
             <div class="col-lg-1 text-left mb-3 fixed" id="social-share">
-                <a class="btn  btn-light m-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn  btn-light m-2" href="#"><i class="fab fa-google"></i></a>
-                <a class="btn  btn-light m-2" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn  btn-light m-2" target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u={{ route('post-detail', ['slug' => $post->post_slug]) }}"
+                    style="color: #0e08ff !important"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn  btn-light m-2" target="_blank" href="{{ __('common.link_google_news') }}"
+                    style="color: #000 !important"><i class="fab fa-google"></i></a>
+                <a class="btn  btn-light m-2" target="_blank"
+                    href="https://twitter.com/intent/tweet?url={{ route('post-detail', ['slug' => $post->post_slug]) }}"
+                    style="color: #088bff !important"><i class="fab fa-twitter"></i></a>
             </div>
 
             <!-- the content -->

@@ -41,4 +41,5 @@ return [
     'msg_add_failure' => 'Add failure',
     'msg_update_failure' => 'Update failure',
     'lbl_default_alt' => 'Hion Coding - Blogs share everything',
+    'link_google_news' => 'https://news.google.com/publications/CAAqBwgKMNvIpAww7cCzBA',
 ];

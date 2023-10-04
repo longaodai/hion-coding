@@ -8,16 +8,20 @@
             <div class="col-md-6">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active btn btn-light" target="_blank"
-                            href="{{ __('common.link_facebook') }}"><i class="fab fa-facebook-f"></i></a>
+                        <a class="nav-link active btn btn-light" target="_blank" href="{{ __('common.link_facebook') }}"
+                            style="color: #0e08ff !important"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active btn btn-light" href="mailto:{{ __('common.info_email_address') }}"><i
-                                class="fab fa-google"></i></a>
+                        <a class="nav-link active btn btn-light" href="mailto:{{ __('common.info_email_address') }}"
+                            style="color: #000 !important"><i class="fa fa-solid fa-envelope"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active btn btn-light" target="_blank"
-                            href="{{ __('common.link_youtube') }}"><i class="fab fa-youtube"></i></a>
+                        <a class="nav-link active btn btn-light" href="{{ __('common.link_google_news') }}"
+                            style="color: #000 !important"><i class="fab fa-google"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active btn btn-light" target="_blank" href="{{ __('common.link_youtube') }}"
+                            style="color: #ff0808 !important"><i class="fab fa-youtube"></i></a>
                     </li>
                 </ul>
 

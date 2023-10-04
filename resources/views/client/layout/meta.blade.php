@@ -17,3 +17,9 @@
     <meta property="og:image:height" content="800">
     <link rel="alternate" type="application/rss+xml" title="Hion Coding - Blogs share everything"
         href="{{ route('feed') }}">
+    <!-- SEO Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@vochilong" />
+    <meta name="twitter:title" content="{{ App\Facades\OpenGraph::get('title') }}" />
+    <meta name="twitter:description" content="{{ App\Facades\OpenGraph::get('description') }}" />
+    <meta name="twitter:image" content="{{ App\Facades\OpenGraph::get('image') }}" />
