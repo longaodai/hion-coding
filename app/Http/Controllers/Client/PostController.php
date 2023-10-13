@@ -38,6 +38,15 @@ class PostController extends Controller
                 'set_pagination' => 20,
             ])
         );
+        setDataMeta(
+            collect([
+                'page_title' => 'Posts - Hion Coding Blogs',
+                'page_description' => 'Posts - Hion Coding Blogs share everything',
+            ]),
+            collect([
+                'is_post' => false
+            ]),
+        );
 
         return view('client.pages.posts', compact('dataPost'));
     }

@@ -28,12 +28,15 @@ if (!function_exists('getPathImage')) {
 if (!function_exists('setDataMeta')) {
     function setDataMeta($data, $options)
     {
-        $description = !empty($data->post_sub_description) ? $data->post_sub_description : $data->post_description;
-
         if (!empty($options->get('is_post'))) {
+            $description = !empty($data->post_sub_description) ? $data->post_sub_description : $data->post_description;
+
             if (!empty($data->post_title)) OpenGraph::set('title', $data->post_title);
             if (!empty($data->post_description)) OpenGraph::set('description', strip_tags(Str::limit($description, 200, '...')));
             if (!empty($data->post_image)) OpenGraph::set('image', asset(getPathImage($data->post_image)));
+        } else {
+            OpenGraph::set('description', strip_tags(Str::limit($data->get('page_description'), 200, '...')));
+            OpenGraph::set('title', $data->get('page_title'));
         }
     }
 }
