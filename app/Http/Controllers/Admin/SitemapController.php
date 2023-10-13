@@ -128,7 +128,7 @@ class SitemapController extends Controller
             $sitemapUrl = url('/post/' . $post->post_slug);
             $sitemapContent .= '<url>' . PHP_EOL;
             $sitemapContent .= '<loc>' . $sitemapUrl . '</loc>' . PHP_EOL;
-            $sitemapContent .= '<lastmod>' . $lastmod . '</lastmod>' . PHP_EOL;
+            $sitemapContent .= '<lastmod>' . date('Y-m-d', strtotime($post->updated_at)) . '</lastmod>' . PHP_EOL;
             $sitemapContent .= '<priority>0.80</priority>' . PHP_EOL;
             $sitemapContent .= '</url>' . PHP_EOL;
         }

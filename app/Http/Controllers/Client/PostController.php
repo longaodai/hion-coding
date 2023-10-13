@@ -75,7 +75,6 @@ class PostController extends Controller
                 ])
             );
             setDataMeta($post, collect(['is_post' => true]));
-            $this->addViewPost($slug, $post->post_views);
 
             return view('client.pages.post', compact('post', 'postRelation'));
         } catch (\Exception $exeption) {
