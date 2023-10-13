@@ -28,6 +28,7 @@
 
         gtag('config', 'G-YZWG0GND6W');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9664091178252332" crossorigin="anonymous"></script>
 
     @yield('style-extend')
 </head>
