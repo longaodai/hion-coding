@@ -42,4 +42,5 @@ return [
     'msg_update_failure' => 'Update failure',
     'lbl_default_alt' => 'Hion Coding - Blogs share everything',
     'link_google_news' => 'https://news.google.com/publications/CAAqBwgKMNvIpAww7cCzBA',
+    'lbl_about_title' => 'About - Hion Coding Blog',
 ];
