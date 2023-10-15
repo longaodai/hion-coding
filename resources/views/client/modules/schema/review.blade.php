@@ -11,12 +11,11 @@
             "ratingValue": "5",
             "reviewCount": "50"
         },
-        "dateReviewed": "2023-10-15",
         "inLanguage": "en",
         "reviews": [
             {
                 "@type": "Review",
-                "reviewTitle": "Excellent Website",
+                "name": "Excellent Website",
                 "reviewBody": "I love this website. It's amazing!",
                 "author": {
                     "@type": "Person",
@@ -31,7 +30,7 @@
             },
             {
                 "@type": "Review",
-                "reviewTitle": "Great Content",
+                "name": "Great Content",
                 "reviewBody": "This website has great content. I'm a fan!",
                 "author": {
                     "@type": "Person",
@@ -58,4 +57,4 @@
             }
         ]
     }
-</script>
+    </script>
