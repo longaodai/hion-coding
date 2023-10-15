@@ -30,6 +30,8 @@ Route::get('/post/{slug}', [PostController::class, 'show'])->name('post-detail')
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/feed', [RSSFeedController::class, 'index'])->name('feed');
+Route::post('/send-inquiry', [ContactController::class, 'sendInquiry'])->name('send_inquiry');
+Route::get('/thanks', [ContactController::class, 'thanks'])->name('thanks');
 
 /** Auth */
 Route::get('/login', [AuthController::class, 'index'])->name('admin.login');

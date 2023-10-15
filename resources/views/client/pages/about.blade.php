@@ -1,11 +1,5 @@
 @extends('client.layout.master')
 
-@section('style-extend')
-    <style>
-        .article-img {}
-    </style>
-@endsection
-
 @section('content')
     <div class="hero-meta hero-title-post mt-5 mb-1 text-center">
         <h1>{{ __('common.lbl_about_title') }}</h1>
@@ -21,7 +15,7 @@
                         loading="lazy">
                 </div>
                 <div class="info-admin mt-3 hero-title-post">
-                    <h3>Vo Chi Long</h3>
+                    <h3>{{ __('common.lbl_name_author') }}</h3>
                     <p>
                         Software Engineer in Vietnam
                     </p>

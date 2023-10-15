@@ -28,7 +28,8 @@
 
         gtag('config', 'G-YZWG0GND6W');
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5057603830951739" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5057603830951739"
+        crossorigin="anonymous"></script>
 
     @yield('style-extend')
 </head>
@@ -49,15 +50,15 @@
         @include('client.layout.footer')
         <!-- END FOOTER  -->
 
+        <button id="backToTopButton" title="Back to Top" class="btn vcl-buttons vcl-btn-hover vcl-color-primary"><i
+                class="fa fa-arrow-up" aria-hidden="true"></i></button>
     </div>
     <!-- END -->
     @include('client.modules.schema.organization')
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
     </script>
@@ -65,6 +66,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
     @yield('script-extend')
+    <script src="{{ asset('client/script.js') }}"></script>
     <script type="module">
         import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';
     </script>

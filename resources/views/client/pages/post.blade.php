@@ -57,7 +57,7 @@
             </div>
 
             <!-- the content -->
-            <div class="col-xl-7 col-lg-10 col-md-12">
+            <div class="col-xl-10 col-lg-10 col-md-12">
                 <h2>{{ !empty($post->post_title) ? $post->post_title : '' }}</h2>
                 {!! !empty($post->post_description) ? $post->post_description : '' !!}
             </div>

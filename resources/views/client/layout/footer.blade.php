@@ -24,7 +24,6 @@
                             style="color: #ff0808 !important"><i class="fab fa-youtube"></i></a>
                     </li>
                 </ul>
-
             </div>
 
             <hr>
