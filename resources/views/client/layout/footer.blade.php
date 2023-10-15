@@ -33,7 +33,8 @@
         <!-- copyright text -->
         <div class="row pt-2">
             <div class="col-lg-12 text-center">
-                <span>&copy {{ date('Y') }} <a href="#">{{ __('common.lbl_name_site') }}</a></span>
+                <span>&copy {{ date('Y') }} <a
+                        href="{{ route('home') }}">{{ __('common.lbl_name_site') }}</a></span>
             </div>
         </div>
     </div>
