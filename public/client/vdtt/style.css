@@ -1,0 +1,80 @@
+#app-kame {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-image: url('kame-house.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    position: relative;
+    height: calc(100vh - 120px - 200px);
+}
+
+#search-kame {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-note-kame {
+    margin-top: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+#search-kame input {
+    background-color: #fff;
+    border: none;
+    color: #000;
+    font-family: inherit;
+    font-size: inherit;
+    width: 70%;
+    max-width: 500px;
+    height: 100%;
+    outline: 0;
+    padding-inline-end: 44px;
+    padding-inline-start: 52px;
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 18px;
+}
+
+#search-kame #results {
+    position: absolute;
+    top: 40px;
+    width: 70%;
+    max-width: 500px;
+    list-style: none;
+    padding: 0;
+    z-index: 1000;
+}
+
+#search-kame li {
+    background-color: #fff;
+    padding: 10px 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #search-kame {
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    #search-kame #results {
+        font-size: 14px;
+    }
+
+    #search-kame #results li {
+        padding: 5px 10px;
+    }
+
+}

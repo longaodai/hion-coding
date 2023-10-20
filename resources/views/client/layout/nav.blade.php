@@ -25,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">{{ __('common.lbl_contact_nav') }}</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('vdtt') }}">{{ __('common.lbl_vdtt_nav') }}</a>
+                </li>
             </ul>
         </div>
     </div>
