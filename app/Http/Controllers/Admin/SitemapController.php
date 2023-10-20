@@ -28,6 +28,10 @@ class SitemapController extends Controller
             'url' => '/contact',
             'priority' => '0.80'
         ],
+        [
+            'url' => '/vo-dai-toi-thuong-cau-hoi-quy-lao',
+            'priority' => '0.80'
+        ],
     ];
 
     public function __construct(CategoryServiceInterface $categoryService, PostServiceInterface $postService)
