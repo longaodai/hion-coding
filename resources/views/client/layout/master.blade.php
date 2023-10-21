@@ -55,7 +55,6 @@
     </div>
     <!-- END -->
     @include('client.modules.schema.organization')
-    @include('client.modules.schema.review')
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
