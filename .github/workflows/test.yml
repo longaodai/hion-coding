@@ -10,14 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/github-script@v5
-        id: echo-ssh-private-key
-        with:
-          script: |
-            const fs = require('fs');
-            const privateKey = '${{ secrets.SSH_PRIVATE_KEY }}';
-
-            fs.writeFileSync('./my_private_key.pem', privateKey);
+      - name: Checkout code
+        uses: actions/checkout@v2.3.2
+      - name: Deploy1
+        run: |
+          echo ${{ secrets.SSH_PRIVATE_KEY }} > my_private_key.pem
       - name: Deploy
         run: |
           ssh -i my_private_key.pem ohioncom@hioncoding.com
