@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2.3.2
-      - name: echo
+      - name: Deploy1
         run: |
-          echo ${{ secrets.SSH_PRIVATE_KEY }}
-
+          # Log the SSH key
+          echo "${SSH_PRIVATE_KEY:0:20}"
       - name: Deploy
         run: |
           ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ohioncom@hioncoding.com
