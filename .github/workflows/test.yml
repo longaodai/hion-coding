@@ -12,9 +12,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2.3.2
-      - name: Deploy1
+      - name: Create SSH key
         run: |
-          echo ${{ secrets.SSH_PRIVATE_KEY }} > my_private_key.pem
-      - name: Deploy
-        run: |
-          ssh -i my_private_key.pem ohioncom@hioncoding.com
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
+          sudo chmod 600 ~/.ssh/private.key
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+      - name: SSH into DO and run
+        run: >
+          ssh -i ~/.ssh/private.key -tt ohioncom@hioncoding.com
+          "
+            echo 'Welcome to ec2'
+          "
