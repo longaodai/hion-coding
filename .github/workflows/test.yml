@@ -15,4 +15,4 @@ jobs:
 
       - name: Deploy
         run: |
-          ssh -i $SSH_PRIVATE_KEY ubuntu@production.example.com "ls"
+          ssh -i $SSH_PRIVATE_KEY ohioncom@103.106.105.141 "ls"
