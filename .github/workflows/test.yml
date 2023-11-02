@@ -22,7 +22,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
       - name: SSH into DO and run
         run: >
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/private.key ohioncom@hioncoding.com uptime
+          ssh -i ~/.ssh/private.key ohioncom@hioncoding.com
           "
             echo 'Welcome to ec2'
           "
