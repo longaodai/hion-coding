@@ -1,11 +1,11 @@
   name: Cron Job
   on:
     schedule:
-      - cron: '*/5 * * * *'
+      - cron: '0 17 * * *'
   jobs:
     # This workflow contains a single job called "cron"
     run_schedule:
       runs-on: ubuntu-latest
       steps:
-        - name: Echo Hello World
-          run: echo "Hello world !!!"
+        - name: Echo Get home
+          run: echo "Get home !!!"
