@@ -4,7 +4,7 @@
       - cron: '*/5 * * * *'
   jobs:
     # This workflow contains a single job called "cron"
-    test_schedule:
+    run_schedule:
       runs-on: ubuntu-latest
       steps:
         - name: Echo Hello World
