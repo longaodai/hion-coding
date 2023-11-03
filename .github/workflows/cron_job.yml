@@ -1,4 +1,4 @@
-  name: First Cron Job
+  name: Cron Job
   on:
     schedule:
       - cron: '*/5 * * * *'
@@ -8,24 +8,4 @@
       runs-on: ubuntu-latest
       steps:
         - name: Echo Hello World
-          run: |
-            curl 'https://www.chatwork.com/gateway/send_chat.php?myid=6498093&_v=1.80a&_av=5&ln=en&room_id=254604786&read=1' \
-            -H 'authority: www.chatwork.com' \
-            -H 'accept: application/json, text/plain, */*' \
-            -H 'accept-language: en-US,en;q=0.9,vi;q=0.8' \
-            -H 'cache-control: no-cache' \
-            -H 'content-type: application/x-www-form-urlencoded;charset=UTF-8' \
-            -H 'cookie: _mkto_trk=id:955-DIQ-169&token:_mch-chatwork.com-1673425806673-89666; __td_signed=true; _ga_EX8SRB1MLE=GS1.1.1675053395.1.0.1675053402.53.0.0; auto_logindefault=1119eb650bb41ca9962719c91bdab0aa5ea837ad; cwssid=tvmmdhjt49egtqu342945aa42f; _fbp=fb.1.1697698404160.464557965; _gid=GA1.2.944778013.1698814334; _ga=GA1.2.1310795102.1673425806; _td=040768fd-f376-4dd2-a6d4-f91bbf4b787c; _ga_B32Z83FNCR=GS1.1.1698916501.918.0.1698916501.60.0.0; _dd_s=rum=0&expire=1698979431717' \
-            -H 'origin: https://www.chatwork.com' \
-            -H 'pragma: no-cache' \
-            -H 'referer: https://www.chatwork.com/' \
-            -H 'sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"' \
-            -H 'sec-ch-ua-mobile: ?0' \
-            -H 'sec-ch-ua-platform: "Linux"' \
-            -H 'sec-fetch-dest: empty' \
-            -H 'sec-fetch-mode: cors' \
-            -H 'sec-fetch-site: same-origin' \
-            -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36' \
-            -H 'x-newrelic-id: undefined' \
-              --data-raw 'pdata=%7B%22text%22%3A%22%5Binfo%5D%5Btitle%5DHave+a+good+day+%28F%29%28cracker%29%5B%2Ftitle%5D%5Cn%28coffee%29%28eat%29%28y%29%5Cn%5B%2Finfo%5D%22%2C%22_t%22%3A%2281f3ee72ccb1954084c481e2915f937033a21c5b6528cc7f2126d%22%7D' \
-              --compressed
+          run: echo "Hello world !!!"
