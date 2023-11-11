@@ -30,20 +30,20 @@
                     information technology inspired me
                     to create this website. I hope <b><i>"Hion Coding"</i></b> is a place to share my knowledge about
                     information
-                    technology , with the goal of learning together, exploring together the latest information technology
+                    technology, with the goal of learning together, exploring together the latest information technology,
                     and more. <b><i>"Hion Coding"</i></b> is a product of my passion, and I'm excited to take you on a
                     journey of innovation. this wealth, where technology meets passion and knowledge has no limits."</p>
             </div>
             <div class="col-md-6 mt-md-5 mt-sm-3">
                 <b>About</b>
                 <p>I'm a website developer. Specialize in PHP/Laravel back-end development, but also have experience with
-                    font-end development.
+                    front-end development.
                     Always learn and learn new knowledge to develop and improve yourself</p>
                 <hr>
                 <b>Skills</b>
-                <p><b>Back-end:</b> PHP / Framework Laravel, Codeigniter (basic), MySQL</p>
-                <p><b>Front-end:</b> Html, Css / Bootstrap, Javascript / Library Jquery / Framework Vuejs ( basic )</p>
-                <p><b>Other:</b> Docker, Git, Postman, AWS Amplify, Ubuntu, Apache, Nginx</p>
+                <p><b>Back-end:</b> PHP / Framework Laravel, Codeigniter (basic), MySQL, NodeJS/ExpressJS, Python (basic) </p>
+                <p><b>Front-end:</b> Html, CSS / Bootstrap, Javascript / Library Jquery / Vuejs ( basic ) / Reactjs (basic)</p>
+                <p><b>Other:</b> Docker, Git / Github, Postman, AWS Amplify, Ubuntu, Apache, Nginx, ...</p>
                 <hr>
                 <b>Work experience</b>
                 <div class="row mt-3">
