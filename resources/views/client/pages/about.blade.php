@@ -39,7 +39,7 @@
                 <p>I'm a website developer. Specialize in PHP/Laravel back-end development, but also have experience with
                     front-end development.
                     Always learn and learn new knowledge to develop and improve yourself <br />
-                    <a href="https://hioncoding.com/public/common/VO%20CHI%20LONG%20-%20CV.pdf" target="_blank" rel="nofollow">You can view detail My CV</a>
+                    You can view detail<a href="https://hioncoding.com/public/common/VO%20CHI%20LONG%20-%20CV.pdf" target="_blank" rel="nofollow"> My CV in Here 🎉</a>
                 </p>
                 <hr>
                 <b>Skills</b>
