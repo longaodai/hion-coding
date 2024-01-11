@@ -109,7 +109,6 @@
     <style>
         #content img {
             max-width: 100% !important;
-            max-height: 550px !important;
             width: 100% !important;
             height: auto !important;
         }
