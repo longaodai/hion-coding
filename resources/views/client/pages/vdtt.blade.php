@@ -18,9 +18,10 @@
     <div class="container hero-meta hero-title-post mt-5 mb-1 text-center">
         <h1>Hion Coding</h1>
         <h2>Câu hỏi & Câu trả lời.</h2>
+        <p style='font-size: 15px;margin-top: -10px;text-decoration-line: underline;'>Bạn có thể tìm kiếm câu trả lời bằng cách nhập câu hỏi ở trên</p>
         <br>
     </div>
-    <div id='list-qa' class='container mt-5'></div>
+    <div id='list-qa' class='container'></div>
 @endsection
 
 @section('script-extend')
