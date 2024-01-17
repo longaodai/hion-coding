@@ -15,7 +15,12 @@
         <p><i>Nếu có bất kì câu hỏi mới hãy chia sẽ để tôi có thể update thêm vào bộ câu hỏi
                 <a rel="nofolow" target="_blank" href="https://forms.gle/fpqQYShyFhCvhuip9">Tại đây</a></i></p>
     </div>
-    <div id='list-qa'></div>
+    <div class="container hero-meta hero-title-post mt-5 mb-1 text-center">
+        <h1>Hion Coding</h1>
+        <h2>Câu hỏi & Câu trả lời.</h2>
+        <br>
+    </div>
+    <div id='list-qa' class='container mt-5'></div>
 @endsection
 
 @section('script-extend')
