@@ -67,9 +67,6 @@
     </script>
     @yield('script-extend')
     <script src="{{ asset('client/script.js') }}"></script>
-    <script type="module">
-        import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo-rails';
-    </script>
     <script>
         $('#navbarToggle').click(function() {
             $('#navbarToggleSP').toggleClass('show')
