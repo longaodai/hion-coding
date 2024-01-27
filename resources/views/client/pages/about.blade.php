@@ -39,11 +39,11 @@
                 <p>I'm a website developer. Specialize in PHP/Laravel back-end development, but also have experience with
                     front-end development.
                     Always learn and learn new knowledge to develop and improve yourself <br /><br />
-                    <i>You can view detail<a href="https://hioncoding.com/public/common/VO%20CHI%20LONG%20-%20CV.pdf" target="_blank" rel="nofollow"> <b>My CV in Here</b> 🎉</a> or <b>short detail below</b></i>
+                    <i>You can view detail<a href="https://hioncoding.com/public/common/VO_CHI_LONG-My_CV.pdf" target="_blank" rel="nofollow"> <b>My CV in Here</b> 🎉</a> or <b>short detail below</b></i>
                 </p>
                 <hr>
                 <b>Skills</b>
-                <p><b>Back-end:</b> PHP / Framework Laravel, Codeigniter (basic), MySQL, NodeJS/ExpressJS, Python (basic) </p>
+                <p><b>Back-end:</b> PHP / Laravel / Codeigniter / Yii2, MySQL, NodeJS/ExpressJS, Python / Flask </p>
                 <p><b>Front-end:</b> Html, CSS / Bootstrap, Javascript / Library Jquery / Vuejs ( basic ) / Reactjs (basic)</p>
                 <p><b>Other:</b> Docker, Git / Github, Postman, AWS Amplify, Ubuntu, Apache, Nginx, ...</p>
                 <hr>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="row mt-md-3 mt-sm-2">
                     <div class="col-md-4">
-                        4/2021 - 8/2021
+                        1/2021 - 8/2021
                     </div>
                     <div class="col-md-8">
                         <p><b>Bang Truong Trading & Service Co., Ltd</b> <br /><i>Danang, Vietnam</i></p>
