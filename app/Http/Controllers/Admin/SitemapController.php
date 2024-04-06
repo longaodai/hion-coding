@@ -46,7 +46,11 @@ class SitemapController extends Controller
 
     public function index()
     {
-        $posts = $this->postService->all();
+        $posts = $this->postService->all(
+            collect([
+                'is_active' => true,
+            ])
+        );
         $resultCreateSiteMap = $this->renewGenerateSiteMap($posts);
 
         if ($resultCreateSiteMap) {
