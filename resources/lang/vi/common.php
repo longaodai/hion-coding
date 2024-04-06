@@ -47,4 +47,6 @@ return [
     'lbl_contact_title' => 'Contact - Hion Coding',
     'lbl_thank_title' => 'Thanks - Hion Coding',
     'lbl_back_to_top' => 'Back to top',
+    'lbl_tools_nav' => 'TOOLS',
+    'lbl_convert_image_to_webp_nav' => 'CONVERT IMAGE TO WEBP',
 ];

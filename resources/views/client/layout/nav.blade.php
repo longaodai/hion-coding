@@ -25,6 +25,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">{{ __('common.lbl_contact_nav') }}</a>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ __('common.lbl_tools_nav') }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ route('vdtt') }}">{{ __('common.lbl_vdtt_nav') }}</a>
+                        <a class="dropdown-item" href="{{ route('convert_image') }}">{{ __('common.lbl_convert_image_to_webp_nav') }}</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

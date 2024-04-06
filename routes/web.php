@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\RSSFeedController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\PostController;
 use App\Http\Controllers\Client\VDTTController;
+use App\Http\Controllers\Client\ImageConvertController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::get('/feed', [RSSFeedController::class, 'index'])->name('feed');
 Route::post('/send-inquiry', [ContactController::class, 'sendInquiry'])->name('send_inquiry');
 Route::get('/thanks', [ContactController::class, 'thanks'])->name('thanks');
 Route::get('/vo-dai-toi-thuong-cau-hoi-quy-lao', [VDTTController::class, 'search'])->name('vdtt');
+Route::get('/convert-image', [ImageConvertController::class, 'index'])->name('convert_image');
+Route::post('/convert-image-to-webp', [ImageConvertController::class, 'convertToWebP'])->name('convert_image_to_webp')->withoutMiddleware(['csrf']);;
 
 /** Auth */
 Route::get('/login', [AuthController::class, 'index'])->name('admin.login');
