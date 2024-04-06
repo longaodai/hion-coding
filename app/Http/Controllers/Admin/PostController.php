@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Utils\ImageTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
@@ -147,6 +148,8 @@ class PostController extends Controller
 
             return redirect()->back()->with('success', __('common.msg_update_success'));
         } catch (\Exception $exception) {
+            Log::debug('ERROR UPDATE POST: ' . $exception->getMessage());
+
             return redirect()->back()->with('error', __('common.msg_update_failure'));
         }
     }
