@@ -25,7 +25,7 @@
                 <div class="hero-meta">
                     <h2>{{ __('home.lbl_desciption_sub') }}</>
                         <div class="author">
-                            <div class="author-img"><img src="{{ asset('common/images/author.jpg') }}"
+                            <div class="author-img"><img src="{{ asset('common/images/hion-coding_logo.png.webp') }}"
                                     alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></div>
                             <div class="author-meta">
                                 <span class="author-name">{{ __('common.lbl_name_author') }}</span>
