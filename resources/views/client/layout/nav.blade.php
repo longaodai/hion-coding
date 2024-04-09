@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{{ route('home') }}"><img class="logo-image"
-                src="{{ asset('common/images/logo.png') }}" alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></a>
+                src="{{ asset('common/images/hion-coding_logo.png.webp') }}" alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></a>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarToggleSP">
 
