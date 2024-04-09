@@ -2,7 +2,7 @@
     <div class="container ">
         <div class="row pb-1" style="align-items: center">
             <!-- Footer logo -->
-            <div class="col-md-6  pb-2"><img class="logo-image" src="{{ asset('common/images/logo.png') }}"
+            <div class="col-md-6  pb-2"><img class="logo-image" src="{{ asset('common/images/hion-coding_logo.png.webp') }}"
                     alt="{{ __('common.lbl_default_alt') }}" loading="lazy"></div>
             <!-- footer social links -->
             <div class="col-md-6">
