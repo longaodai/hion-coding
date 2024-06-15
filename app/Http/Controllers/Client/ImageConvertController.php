@@ -50,10 +50,10 @@ class ImageConvertController extends Controller
 
         try {
             foreach ($images as $image) {
-                $nameFileUpload = 'hion-coding_' . time() . '_' . $image->getClientOriginalName() . '.webp';
+                $nameFileUpload = $image->getClientOriginalName() . '.webp';
                 $newImage = imagecreatefromstring(file_get_contents($image->path()));
                 ob_start();
-                imagewebp($newImage, null, 80);
+                imagewebp($newImage, null);
                 $webpData = ob_get_clean();
                 $webpDataUrl = 'data:image/webp;base64,' . base64_encode($webpData);
                 $convertedImages[] = [
