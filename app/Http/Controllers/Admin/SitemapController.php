@@ -81,6 +81,7 @@ class SitemapController extends Controller
 
         $sitemapContent .= '</sitemapindex>';
         file_put_contents(public_path('sitemap.xml'), $sitemapContent);
+        file_put_contents(public_path('sitemaps.xml'), $sitemapContent);
 
         return true;
     }
@@ -147,6 +148,7 @@ class SitemapController extends Controller
 
         $sitemapContent .= '</urlset>';
         file_put_contents(public_path('sitemap.xml'), $sitemapContent);
+        file_put_contents(public_path('sitemaps.xml'), $sitemapContent);
 
         return true;
     }
