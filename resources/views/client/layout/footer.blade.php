@@ -34,7 +34,9 @@
         <div class="row pt-2">
             <div class="col-lg-12 text-center">
                 <span>&copy {{ date('Y') }} <a
-                        href="{{ route('home') }}">{{ __('common.lbl_name_site') }}</a></span>
+                        href="{{ route('home') }}">{{ __('common.lbl_name_site') }}</a>
+                    <a href="//www.dmca.com/Protection/Status.aspx?ID=56320fc6-b92d-4da0-b3b1-df5a95f4b6fe" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca-badge-w150-5x1-03.png?ID=56320fc6-b92d-4da0-b3b1-df5a95f4b6fe"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+                </span>
             </div>
         </div>
     </div>
