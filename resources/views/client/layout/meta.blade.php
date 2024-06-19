@@ -23,3 +23,5 @@
     <meta name="twitter:title" content="{{ App\Facades\OpenGraph::get('title') }}" />
     <meta name="twitter:description" content="{{ App\Facades\OpenGraph::get('description') }}" />
     <meta name="twitter:image" content="{{ App\Facades\OpenGraph::get('image') }}" />
+    <!--- DMCA --->
+    <meta name='dmca-site-verification' content='VHU3dWVPei9TZ1MwRjR0OERVc1o4Zz090' />
