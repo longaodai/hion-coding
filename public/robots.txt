@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: http://ohion.io.vn/sitemaps.xml
+Sitemap: https://hioncoding.com/sitemap.xml
