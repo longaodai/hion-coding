@@ -6,7 +6,7 @@
             <div class="col-lg-6 hero-img-container">
                 <a href="{{ route('home') }}">
                     <div class="hero-img">
-                        <img src="{{ asset('common/images/hion-coding_top_everything_will_be_ok.jpg.webp') }}" alt="{{ __('common.lbl_default_alt') }}"
+                        <img src="{{ asset('common/images/hion-coding_top_everything_will_be_ok.webp') }}" alt="{{ __('common.lbl_default_alt') }}"
                             loading="lazy">
                     </div>
                 </a>
