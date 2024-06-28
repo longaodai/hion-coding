@@ -11,7 +11,7 @@
             <div class="col-md-3 col-sm-6 text-center">
                 <div class="article-img mt-md-2"
                     style="max-width: 250px; height: 250px; overflow: hidden; border-radius: 100%;">
-                    <img src="{{ asset('common/images/author_blog.webp') }}" alt="{{ __('common.lbl_about_title') }}"
+                    <img src="{{ asset('common/images/hion-coding-author.webp') }}" alt="{{ __('common.lbl_about_title') }}"
                         loading="lazy">
                 </div>
                 <div class="info-admin mt-3 hero-title-post">
