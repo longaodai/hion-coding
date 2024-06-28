@@ -36,7 +36,56 @@
             </div>
         </div>
     </div>
+    <br>
+    <div class="hero-meta hero-title-post mt-5 mb-1 text-center">
+        <h1>My Packages</h1>
+        <h2>Share and learn new knowledge.</h2>
+    </div>
+    <div class="container mt-2 mb-2 pt-0 pb-3" id="article-grid">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-4 article-card">
+                <img src="{{ asset('common/images/laravel-repository-pattern.webp') }}" style="max-width: 100%;height: 175px;object-fit: cover;" class="card-img-top" alt="Hion Coding - Repository-pattern">
+                <div class="card-body article-meta" style="margin: 0 auto;">
+                    <h3 class="card-title text-center">Repository-pattern</h3>
+                    <p class="text-center">My package support generator repository pattern for Laravel</p>
+                    <div class="container text-center mb-2">
+                        <a href="https://github.com/longaodai/repository-pattern" target="_blank" class="btn vcl-buttons vcl-btn-hover vcl-color-primary">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-4 article-card">
+                <img src="{{ asset('common/images/ssh-server.webp') }}" style="max-width: 100%;height: 175px;object-fit: cover;" class="card-img-top" alt="Hion Coding - Package SSH Server">
+                <div class="card-body article-meta" style="margin: 0 auto;">
+                    <h3 class="card-title text-center">Package SSH Server</h3>
+                    <p class="text-center">My package support ssh server for auto deploy in Github actions</p>
+                    <div class="container text-center mb-2">
+                        <a href="https://github.com/longaodai/ssh-server" target="_blank" class="btn vcl-buttons vcl-btn-hover vcl-color-primary">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-4 article-card">
+                <img src="{{ asset('common/images/php-development.webp') }}" style="max-width: 100%;height: 175px;object-fit: cover;object-position: center left;" class="card-img-top" alt="Hion Coding - Hion Framework">
+                <div class="card-body article-meta" style="margin: 0 auto;">
+                    <h3 class="card-title text-center">Hion Framework</h3>
+                    <p class="text-center">Hion is a simple PHP framework <br> (is in development stage)</p>
+                    <div class="container text-center mb-2">
+                        <a href="https://github.com/longaodai/Hion" target="_blank" class="btn vcl-buttons vcl-btn-hover vcl-color-primary">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <br>
+    <div class="hero-meta hero-title-post mt-5 mb-1 text-center">
+        <h1>News</h1>
+        <h2>Share and learn new knowledge.</h2>
+    </div>
     <div class="container mt-2 mb-2 pt-0 pb-3" id="article-grid">
         <div class="row justify-content-center">
             @if ($listPost->count() > 0)
