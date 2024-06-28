@@ -15,7 +15,8 @@
     <div class="container mt-2 mb-2 pb-5" id="article-grid">
         <div class="row justify-content-center">
             <div class="col-md-3 col-sm-6 text-center">
-                <div class="article-img mt-md-2"
+                <style>@media screen and (max-width: 1200px) and (min-width: 768px) {.article-img-author {height: 160px !important;}}</style>
+                <div class="article-img article-img-author mt-md-2"
                     style="max-width: 250px; height: 250px; overflow: hidden; border-radius: 100%;">
                     <img src="{{ asset('common/images/hion-coding_author.webp') }}" alt="{{ __('common.lbl_about_title') }}"
                         loading="lazy">
