@@ -78,7 +78,7 @@ class PostController extends Controller
             $postRelation = $this->postService->all(
                 collect([
                     'is_active' => true,
-                    'limit' => 2,
+                    'limit' => 4,
                     'category_id' => $post->category_id,
                     'not_post_id' => $post->id,
                 ])
