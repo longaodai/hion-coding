@@ -9,7 +9,7 @@ return [
     'lbl_funny_nav' => 'FUNNY',
     'lbl_about_nav' => 'ABOUT',
     'lbl_contact_nav' => 'CONTACT',
-    'lbl_vdtt_nav' => 'VDTT',
+    'lbl_vdtt_nav' => 'CÂU HỎI VÕ ĐÀI TỐI THƯỢNG',
     'link_facebook' => 'https://www.facebook.com/vochilong.work/',
     'info_email_address' => 'vochilong.work@gmail.com',
     'link_youtube' => 'https://www.youtube.com/channel/UCi6tInglFB2BIWV4u6aBfDw',
