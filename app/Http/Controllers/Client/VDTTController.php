@@ -10,8 +10,8 @@ class VDTTController extends Controller
     {
         setDataMeta(
             collect([
-                'page_title' => 'Võ Đài Tối Thượng - Hion Coding Blogs',
-                'page_description' => 'Võ Đài Tối Thượng - Hion Coding Blogs share everything',
+                'page_title' => 'Trả lời câu hỏi Võ Đài Tối Thượng - Hion Coding Blogs',
+                'page_description' => 'Câu hỏi và câu trả lời game Võ Đài Tối Thượng - Hion Coding Blogs share everything',
             ]),
             collect([
                 'is_post' => false
