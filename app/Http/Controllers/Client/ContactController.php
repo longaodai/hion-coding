@@ -43,7 +43,7 @@ class ContactController extends Controller
                 'message' => $request->get('message'),
             ]);
 
-            // event(new SendMailInquiryEvent($data));
+            event(new SendMailInquiryEvent($data));
 
             return redirect()->route('thanks');
         } catch (Exception $exception) {
